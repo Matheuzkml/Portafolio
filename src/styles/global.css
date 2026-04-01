@@ -1,14 +1,25 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: 'DM Sans', sans-serif;
+  html,
+  body,
+  button,
+  input,
+  textarea,
+  select {
+    font-family: 'Cascadia Code PL', 'Cascadia Code', monospace;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 }
+
 @keyframes spore {
   0% {
     opacity: 1;

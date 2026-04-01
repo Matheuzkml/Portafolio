@@ -55,12 +55,12 @@ const categories = [
 
 <section id="skills" class="skills-section container mx-auto px-8 mt-24" style="scroll-margin-top: 96px;">
   <div class="max-w-4xl">
-    <h2 class="text-4xl md:text-5xl font-bold text-[#ffde59] mb-4">
+    <h2 class="mb-4 text-4xl font-semibold text-[#ffde59] md:text-5xl">
       Tecnologías y habilidades
     </h2>
-    <p class="skills-intro text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed relative group transition-colors duration-300">
+    <p class="skills-intro relative group text-lg leading-relaxed text-slate-300 transition-colors duration-300 sm:text-xl md:text-2xl">
       Herramientas y tecnologías que utilizo para construir interfaces, automatizar procesos y desarrollar soluciones confiables.
-      <span class="flash-overlay absolute inset-0 bg-[#ffde59] opacity-0 group-hover:opacity-15 rounded-lg blur-lg transition duration-500"></span>
+      <span class="flash-overlay absolute inset-0 rounded-lg bg-[#ffde59] opacity-0 blur-lg transition duration-500 group-hover:opacity-15"></span>
     </p>
   </div>
 
@@ -70,13 +70,13 @@ const categories = [
         <div class={`absolute inset-0 bg-gradient-to-br ${category.glow} opacity-80`}></div>
 
         <div class="relative z-10">
-          <h3 class={`text-2xl md:text-3xl font-bold ${category.accent} mb-5`}>
+          <h3 class={`mb-5 text-2xl font-semibold ${category.accent} md:text-3xl`}>
             {category.title}
           </h3>
 
           <div class="flex flex-wrap gap-3">
             {category.items.map((item) => (
-              <span class="skill-chip inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0f172a]/70 px-4 py-2 text-base text-white transition duration-300 group-hover:-translate-y-1 group-hover:border-white/20">
+              <span class="skill-chip inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0f172a]/70 px-4 py-2 text-base text-slate-100 transition duration-300 group-hover:-translate-y-1 group-hover:border-white/20">
                 <item.Icon className={`${item.color} text-xl`} />
                 <span>{item.label}</span>
               </span>
