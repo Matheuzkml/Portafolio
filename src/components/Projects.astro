@@ -122,10 +122,13 @@ const galleries = {
   </div>
 </section>
 
-<div id="project-gallery-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
-  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" data-close></div>
+<div
+  id="project-gallery-modal"
+  class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 invisible pointer-events-none transition-[opacity,visibility] duration-300 ease-out"
+>
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-out" data-close data-modal-backdrop></div>
 
-  <div class="relative z-10 w-full max-w-[96vw] rounded-3xl border border-gray-500/40 bg-[#0f172a]/95 p-6 shadow-2xl shadow-black/40 xl:max-w-[92vw]">
+  <div class="relative z-10 w-full max-w-[96vw] rounded-3xl border border-gray-500/40 bg-[#0f172a]/95 p-6 shadow-2xl shadow-black/40 opacity-0 transition-opacity duration-300 ease-out xl:max-w-[92vw]" data-modal-panel>
     <button
       type="button"
       class="absolute right-4 top-4 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/20"
@@ -216,6 +219,14 @@ const galleries = {
     animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fadeInUp {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .no-scrollbar {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -224,11 +235,17 @@ const galleries = {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+  :global(html) {
+    scrollbar-gutter: stable;
+  }
 </style>
 
 <script type="module" is:inline define:vars={{ galleries }}>
   const cards = document.querySelectorAll('.card');
   const modal = document.getElementById('project-gallery-modal');
+  const modalPanel = modal?.querySelector('[data-modal-panel]');
+  const modalBackdrop = modal?.querySelector('[data-modal-backdrop]');
   const titleEl = document.getElementById('gallery-title');
   const kickerEl = document.getElementById('gallery-kicker');
   const subtitleEl = document.getElementById('gallery-subtitle');
@@ -247,6 +264,35 @@ const galleries = {
       kicker: 'Galería del proyecto',
       subtitle: 'Capturas del sistema para tienda deportiva, inicio de sesión, inventario, empleados y facturación.',
     },
+  };
+
+  const getScrollbarWidth = () => window.innerWidth - document.documentElement.clientWidth;
+
+  const openModalAnimation = () => {
+    if (!modal || !modalPanel || !modalBackdrop) return;
+
+    modal.classList.remove('invisible', 'pointer-events-none');
+    modal.classList.add('opacity-100');
+
+    requestAnimationFrame(() => {
+      modalBackdrop.classList.add('opacity-100');
+      modalPanel.classList.remove('opacity-0');
+      modalPanel.classList.add('opacity-100');
+    });
+  };
+
+  const closeModalAnimation = () => {
+    if (!modal || !modalPanel || !modalBackdrop) return;
+
+    modalBackdrop.classList.remove('opacity-100');
+    modalPanel.classList.remove('opacity-100');
+    modalPanel.classList.add('opacity-0');
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0');
+
+    window.setTimeout(() => {
+      modal.classList.add('invisible', 'pointer-events-none');
+    }, 300);
   };
 
   const openModal = (projectKey) => {
@@ -300,15 +346,18 @@ const galleries = {
       emptyEl.classList.remove('hidden');
     }
 
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
+    const scrollbarWidth = getScrollbarWidth();
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
     document.body.classList.add('overflow-hidden');
+    openModalAnimation();
   };
 
   const closeModal = () => {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
     document.body.classList.remove('overflow-hidden');
+    document.body.style.paddingRight = '';
+    closeModalAnimation();
   };
 
   cards.forEach((card) => {
