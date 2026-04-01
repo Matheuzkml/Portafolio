@@ -1,0 +1,174 @@
+---
+
+import { FaDatabase, FaJava, FaPython } from 'react-icons/fa';
+import {
+  SiAstro,
+  SiBootstrap,
+  SiCss3,
+  SiDjango,
+  SiHtml5,
+  SiJavascript,
+  SiMysql,
+  SiSelenium,
+  SiVuedotjs,
+} from 'react-icons/si';
+
+const categories = [
+  {
+    title: 'Frontend y UI',
+    accent: 'text-[#ffde59]',
+    border: 'border-[#ffde59]/25',
+    glow: 'from-[#ffde59]/10 to-transparent',
+    items: [
+      { label: 'Astro', Icon: SiAstro, color: 'text-[#ff5d9e]' },
+      { label: 'Vue', Icon: SiVuedotjs, color: 'text-[#42d392]' },
+      { label: 'JavaScript', Icon: SiJavascript, color: 'text-[#f7df1e]' },
+      { label: 'HTML', Icon: SiHtml5, color: 'text-[#ff7a45]' },
+      { label: 'CSS', Icon: SiCss3, color: 'text-[#4cc9f0]' },
+      { label: 'Bootstrap', Icon: SiBootstrap, color: 'text-[#9b59ff]' },
+    ],
+  },
+  {
+    title: 'Backend',
+    accent: 'text-[#cb6ce6]',
+    border: 'border-[#cb6ce6]/25',
+    glow: 'from-[#cb6ce6]/10 to-transparent',
+    items: [
+      { label: 'Python', Icon: FaPython, color: 'text-[#ffde59]' },
+      { label: 'Java', Icon: FaJava, color: 'text-[#ff5757]' },
+      { label: 'Django', Icon: SiDjango, color: 'text-[#c1ff72]' },
+    ],
+  },
+  {
+    title: 'Datos y automatización',
+    accent: 'text-[#5ce1e6]',
+    border: 'border-[#5ce1e6]/25',
+    glow: 'from-[#5ce1e6]/10 to-transparent',
+    items: [
+      { label: 'SQL', Icon: FaDatabase, color: 'text-[#7dd3fc]' },
+      { label: 'MySQL', Icon: SiMysql, color: 'text-[#f59e0b]' },
+      { label: 'Selenium', Icon: SiSelenium, color: 'text-white' },
+    ],
+  },
+];
+---
+
+<section id="skills" class="skills-section container mx-auto px-8 mt-24" style="scroll-margin-top: 96px;">
+  <div class="max-w-4xl">
+    <h2 class="text-4xl md:text-5xl font-bold text-[#ffde59] mb-4">
+      Tecnologías y habilidades
+    </h2>
+    <p class="skills-intro text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed relative group transition-colors duration-300">
+      Herramientas y tecnologías que utilizo para construir interfaces, automatizar procesos y desarrollar soluciones confiables.
+      <span class="flash-overlay absolute inset-0 bg-[#ffde59] opacity-0 group-hover:opacity-15 rounded-lg blur-lg transition duration-500"></span>
+    </p>
+  </div>
+
+  <div class="mt-12 grid gap-6 lg:grid-cols-3">
+    {categories.map((category) => (
+      <article class={`skill-card group relative overflow-hidden rounded-3xl border ${category.border} bg-white/10 p-6 backdrop-blur-sm opacity-0`}>
+        <div class={`absolute inset-0 bg-gradient-to-br ${category.glow} opacity-80`}></div>
+
+        <div class="relative z-10">
+          <h3 class={`text-2xl md:text-3xl font-bold ${category.accent} mb-5`}>
+            {category.title}
+          </h3>
+
+          <div class="flex flex-wrap gap-3">
+            {category.items.map((item) => (
+              <span class="skill-chip inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0f172a]/70 px-4 py-2 text-base text-white transition duration-300 group-hover:-translate-y-1 group-hover:border-white/20">
+                <item.Icon className={`${item.color} text-xl`} />
+                <span>{item.label}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<script type="module" is:inline>
+  const section = document.querySelector('.skills-section');
+  const intro = document.querySelector('.skills-intro');
+  const cards = document.querySelectorAll('.skill-card');
+  let introPlayed = false;
+
+  const playIntroFlash = () => {
+    if (!intro || introPlayed) {
+      return;
+    }
+
+    introPlayed = true;
+    intro.classList.add('flash-active');
+
+    window.setTimeout(() => {
+      intro.classList.remove('flash-active');
+    }, 1800);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          playIntroFlash();
+
+          const visibleCards = Array.from(cards);
+
+          visibleCards.forEach((card, index) => {
+            window.setTimeout(() => {
+              card.classList.add('animate-skill-card');
+            }, index * 180);
+          });
+
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.35,
+      rootMargin: '0px 0px -10% 0px',
+    }
+  );
+
+  if (section) {
+    observer.observe(section);
+  }
+</script>
+
+<style>
+  .skills-intro.flash-active .flash-overlay {
+    animation: skillFlash 1.8s ease-out;
+  }
+
+  .skills-intro:hover {
+    color: #ffde59;
+  }
+
+  @keyframes skillFlash {
+    0%,
+    100% {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    30% {
+      opacity: 0.18;
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes skillCardIn {
+    0% {
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-skill-card {
+    animation: skillCardIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+</style>

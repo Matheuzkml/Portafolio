@@ -1,0 +1,94 @@
+<div class="about-section container mx-auto px-8 mt-20" style="scroll-margin-top: 96px;">
+  <h2 class="text-4xl md:text-5xl font-bold text-[#ffde59] mb-8">
+    Sobre Mi
+  </h2>
+ 
+  <div class="w-full sm:w-3/4 md:w-1/2 mt-10">
+    <p class="about-paragraph text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed relative group">
+      Desarrollo <span class="text-[#cb6ce6]">aplicaciones</span> y <span class="text-[#6cf7a8]">sitios web</span> combinando backend y frontend para manejar datos de forma eficiente. Me esfuerzo por garantizar que estos datos se presenten con diseños personalizados, elegantes y confiables.
+      <span class="flash-overlay absolute inset-0 bg-[#cb6ce6] opacity-0 group-hover:opacity-20 rounded-lg blur-lg transition duration-500"></span>
+    </p>
+  </div>
+
+  <div class="mt-12 lg:ml-auto lg:text-right">
+    <h3 class="text-3xl md:text-4xl font-bold text-[#5ce1e6] mb-4">
+      Pasión
+    </h3>
+    <div class="w-full sm:w-3/4 md:w-1/2 lg:mr-0 lg:ml-auto">
+      <p class="about-paragraph text-xl md:text-2xl text-gray-300 leading-relaxed relative group">
+        Me encanta explorar nuevas formas de <span class="text-[#ffde59]">crear interfaces gráficas</span> modernas e intuitivas. Este interés me impulsa a experimentar continuamente con técnicas y herramientas.
+        <span class="flash-overlay absolute inset-0 bg-[#5ce1e6] opacity-0 group-hover:opacity-20 rounded-lg blur-lg transition duration-500"></span>
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-12">
+    <h3 class="text-3xl md:text-4xl font-bold text-[#ff5757] mb-4">
+      Enfoque
+    </h3>
+    <div class="w-full sm:w-3/4 md:w-1/2">
+      <p class="about-paragraph text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed relative group">
+        Siempre busco unir <span class="text-[#cb6ce6]">lógica compleja</span> con una <span class="text-[#6cf7a8]">experiencia visual</span> única y funcional, logrando un equilibrio entre rendimiento técnico y estética visual.
+        <span class="flash-overlay absolute inset-0 bg-[#ff5757] opacity-0 group-hover:opacity-20 rounded-lg blur-lg transition duration-500"></span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script type="module" is:inline>
+  const section = document.querySelector('.about-section');
+  const paragraphs = document.querySelectorAll('.about-paragraph');
+
+  const playSequence = () => {
+    paragraphs.forEach((paragraph, index) => {
+      paragraph.classList.remove('flash-active');
+
+      window.setTimeout(() => {
+        paragraph.classList.add('flash-active');
+
+        window.setTimeout(() => {
+          paragraph.classList.remove('flash-active');
+        }, 1800);
+      }, index * 520);
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          playSequence();
+        }
+      });
+    },
+    {
+      threshold: 0.45,
+      rootMargin: '0px 0px -12% 0px',
+    }
+  );
+
+  if (section) {
+    observer.observe(section);
+  }
+</script>
+
+<style>
+  .flash-active .flash-overlay {
+    animation: aboutFlash 1.8s ease-out;
+  }
+
+  @keyframes aboutFlash {
+    0% {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    30% {
+      opacity: 0.24;
+      transform: scale(1.02);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+</style>
