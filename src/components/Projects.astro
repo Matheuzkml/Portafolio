@@ -45,10 +45,10 @@ const galleries = {
 
 ---
 
-<section class="projects-section container mx-auto px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-  <h2 class="mb-4 text-4xl font-semibold text-pink-500 md:text-5xl">Proyectos</h2>
-  <div class="w-full sm:w-3/4 md:w-[60%] mt-8 mb-12">
-    <p class="project-paragraph relative group text-lg text-slate-300 sm:text-xl md:text-2xl leading-relaxed">
+<section class="projects-section container mx-auto px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+  <h2 class="mb-2 text-3xl font-semibold text-pink-500 md:text-4xl">Proyectos</h2>
+  <div class="w-full sm:w-3/4 md:w-[60%] mt-4 mb-8">
+    <p class="project-paragraph relative group text-lg text-slate-300 sm:text-xl leading-relaxed">
       Un vistazo a lo que he <span class="text-[#ffde59]">construido</span>.
       <span class="flash-overlay absolute inset-0 rounded-lg bg-pink-500 opacity-0 blur-lg transition duration-500 group-hover:opacity-20"></span>
     </p>
@@ -60,28 +60,28 @@ const galleries = {
       data-open-gallery="equigrafo"
       tabindex="0"
     >
-      <div class="flex h-full flex-1 flex-col p-4 transition-transform duration-300 sm:p-6 lg:p-8 group-hover:scale-[1.01]">
+      <div class="flex h-full flex-1 flex-col p-4 transition-transform duration-300 sm:p-5 group-hover:scale-[1.01]">
         <img
           src="/assets/equigrafo.png"
           alt="Equigrafo"
-          class="mb-4 h-56 w-full rounded-md object-cover transition duration-300 sm:mb-6 sm:h-72 lg:h-96 group-hover:brightness-110 group-hover:shadow-[0_12px_30px_rgba(0,0,0,0.35)]"
+          class="mb-3 h-40 w-full rounded-md object-cover transition duration-300 sm:h-48 lg:h-52 group-hover:brightness-110 group-hover:shadow-[0_12px_30px_rgba(0,0,0,0.35)]"
         />
-        <div class="mb-3 flex items-start justify-between gap-3 sm:gap-4">
-          <h3 class="text-2xl font-semibold text-white sm:text-3xl lg:text-4xl">Equigrafo</h3>
-          <span class="shrink-0 rounded-full border border-pink-400/40 bg-pink-500/10 px-2.5 py-1 text-xs text-pink-200 sm:px-3 sm:text-sm">
+        <div class="mb-2 flex items-start justify-between gap-3 sm:gap-4">
+          <h3 class="text-lg font-semibold text-white sm:text-xl lg:text-2xl">Equigrafo</h3>
+          <span class="shrink-0 rounded-full border border-pink-400/40 bg-pink-500/10 px-2 py-1 text-xs text-pink-200">
             {galleries.equigrafo.length} fotos
           </span>
         </div>
-        <p class="mb-4 flex flex-wrap items-center text-base sm:mb-6 sm:text-xl lg:text-2xl">
-          <FaPython size={28} className="mr-2 text-[#ffde59] transition-transform transform hover:scale-110 hover:shadow-python sm:mr-3 sm:size-[32px]" />
+        <p class="mb-3 flex flex-wrap items-center text-xs sm:text-sm">
+          <FaPython size={20} className="mr-1.5 text-[#ffde59] transition-transform transform hover:scale-110 hover:shadow-python" />
           <span class="text-[#ffde59] text-shadow-python">Python</span>
-          <SiDjango size={28} className="mx-2 text-[#c1ff72] transition-transform transform hover:scale-110 hover:shadow-django sm:mx-3 sm:size-[32px]" />
+          <SiDjango size={20} className="mx-1.5 text-[#c1ff72] transition-transform transform hover:scale-110 hover:shadow-django" />
           <span class="text-[#c1ff72] text-shadow-django">Django</span>
-          <SiSelenium size={28} className="mx-2 text-white transition-transform transform hover:scale-110 hover:shadow-selenium sm:mx-3 sm:size-[32px]" />
+          <SiSelenium size={20} className="mx-1.5 text-white transition-transform transform hover:scale-110 hover:shadow-selenium" />
           <span class="text-white text-shadow-selenium">Selenium</span>
         </p>
         
-        <div class="mb-4 text-base leading-relaxed text-slate-200 sm:text-lg lg:text-xl relative z-10" onclick="event.stopPropagation()">
+        <div class="mt-auto text-xs leading-relaxed text-slate-200 sm:text-sm relative z-10" onclick="event.stopPropagation()">
           <input type="checkbox" id="toggle-equigrafo" class="peer hidden" />
           <span class="cursor-text">Una tienda de cámaras con vista de productos</span><label for="toggle-equigrafo" class="peer-checked:hidden cursor-pointer text-pink-400 hover:text-pink-300 font-medium px-2 py-1 select-none transition-colors">... ver más</label><span class="hidden peer-checked:inline cursor-text">, inventario, estadísticas, generación de facturas, roles y herramientas administrativas. <strong class="font-semibold text-pink-100">Tecnologías:</strong> Python, Django, Selenium, Bootstrap, MySQL, HTML, CSS, JavaScript.</span><label for="toggle-equigrafo" class="hidden peer-checked:inline-flex cursor-pointer text-pink-400 hover:text-pink-300 font-medium px-2 py-1 select-none transition-colors">(ocultar)</label>
         </div>
@@ -94,24 +94,24 @@ const galleries = {
       data-open-gallery="sportplus"
       tabindex="0"
     >
-      <div class="flex h-full flex-1 flex-col p-4 transition-transform duration-300 sm:p-6 lg:p-8 group-hover:scale-[1.01]">
+      <div class="flex h-full flex-1 flex-col p-4 transition-transform duration-300 sm:p-5 group-hover:scale-[1.01]">
         <img
           src="/assets/sportplus.png"
           alt="SportPlus"
-          class="mb-4 h-56 w-full rounded-md object-cover transition duration-300 sm:mb-6 sm:h-72 lg:h-96 group-hover:brightness-110 group-hover:shadow-[0_12px_30px_rgba(0,0,0,0.35)]"
+          class="mb-3 h-40 w-full rounded-md object-cover transition duration-300 sm:h-48 lg:h-52 group-hover:brightness-110 group-hover:shadow-[0_12px_30px_rgba(0,0,0,0.35)]"
         />
-        <div class="mb-3 flex items-start justify-between gap-3 sm:gap-4">
-          <h3 class="text-2xl font-semibold text-white sm:text-3xl lg:text-4xl">SportPlus</h3>
-          <span class="shrink-0 rounded-full border border-cyan-200/40 bg-cyan-500/10 px-2.5 py-1 text-xs text-cyan-100 sm:px-3 sm:text-sm">
+        <div class="mb-2 flex items-start justify-between gap-3 sm:gap-4">
+          <h3 class="text-lg font-semibold text-white sm:text-xl lg:text-2xl">SportPlus</h3>
+          <span class="shrink-0 rounded-full border border-cyan-200/40 bg-cyan-500/10 px-2 py-1 text-xs text-cyan-100">
             {galleries.sportplus.length} fotos
           </span>
         </div>
-        <p class="mb-4 flex items-center text-base sm:mb-6 sm:text-xl lg:text-2xl">
-          <FaJava size={28} className="mr-2 text-red-500 transition-transform transform hover:scale-110 hover:shadow-java sm:mr-3 sm:size-[32px]" />
+        <p class="mb-3 flex items-center text-xs sm:text-sm">
+          <FaJava size={20} className="mr-1.5 text-red-500 transition-transform transform hover:scale-110 hover:shadow-java" />
           <span class="text-red-500 text-shadow-java">Java</span>
         </p>
         
-        <div class="mb-4 text-base leading-relaxed text-white sm:text-lg lg:text-xl relative z-10" onclick="event.stopPropagation()">
+        <div class="mt-auto text-xs leading-relaxed text-white sm:text-sm relative z-10" onclick="event.stopPropagation()">
           <input type="checkbox" id="toggle-sportplus" class="peer hidden" />
           <span class="cursor-text">Herramienta para tiendas deportivas con inventario</span><label for="toggle-sportplus" class="peer-checked:hidden cursor-pointer text-cyan-300 hover:text-cyan-200 font-medium px-2 py-1 select-none transition-colors">... ver más</label><span class="hidden peer-checked:inline cursor-text">, facturación, estadísticas, filtros y CRUD de empleados.</span><label for="toggle-sportplus" class="hidden peer-checked:inline-flex cursor-pointer text-cyan-300 hover:text-cyan-200 font-medium px-2 py-1 select-none transition-colors">(ocultar)</label>
         </div>
@@ -127,52 +127,62 @@ const galleries = {
 >
   <div class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-out" data-close data-modal-backdrop></div>
 
-  <div class="relative flex flex-col z-10 w-full max-w-[98vw] h-[95vh] rounded-3xl border border-gray-500/40 bg-[#0f172a]/95 p-4 shadow-2xl shadow-black/40 opacity-0 transition-opacity duration-300 ease-out sm:p-6 lg:max-w-[1200px] mx-auto" data-modal-panel>
-    <div class="flex flex-col h-full w-full">
-      <!-- Encabezado simple -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+  <div class="relative flex flex-col z-10 w-full max-w-[98vw] h-[95vh] rounded-[10px] border border-white/10 bg-[#1e1e1e] shadow-2xl opacity-0 transition-opacity duration-300 ease-out sm:max-w-[1100px] lg:max-w-[1200px] mx-auto overflow-hidden" data-modal-panel>
+    
+    <!-- Diseño minimalista de Terminal / Mac Window Header -->
+    <div class="flex items-center justify-between bg-[#2d2d2d] border-b border-black/30 px-3 py-2 shrink-0 select-none">
+      <!-- Botones Mac (Cerrar, Minimizar, Maximizar) -->
+      <div class="flex items-center gap-2">
+        <button type="button" data-close class="w-3 h-3 rounded-full bg-[#ff5f56] hover:bg-[#e0443e] outline-none group flex items-center justify-center" aria-label="Cerrar">
+           <svg class="w-2 h-2 text-black/60 opacity-0 group-hover:opacity-100" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+      </div>
+      
+      <!-- Título de la terminal -->
+      <div id="gallery-window-title" class="absolute left-1/2 -translate-x-1/2 text-center text-xs font-mono text-gray-400 tracking-wide select-none">
+        proyecto.sh
+      </div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="flex flex-col h-full w-full p-4 sm:p-6 min-h-0 bg-[#1e1e1e] flex-1 relative">
+
+      <!-- Encabezado -->
+      <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
         <div>
-          <h3 id="gallery-title" class="text-2xl sm:text-4xl font-bold text-white"></h3>
-          <p id="gallery-description" class="text-sm sm:text-base text-gray-300 mt-1 sm:mt-2"></p>
+          <h3 id="gallery-title" class="text-2xl sm:text-3xl font-mono font-bold text-white tracking-tight"></h3>
+          <p id="gallery-description" class="text-sm sm:text-base font-mono text-[#a3b3cc] mt-1"></p>
+          <div id="gallery-stack" class="flex flex-wrap gap-2 items-center mt-3 font-mono"></div>
         </div>
-        <div class="flex items-center gap-3 sm:gap-4 shrink-0 sm:self-start">
-          <div id="gallery-stack" class="hidden sm:flex flex-wrap gap-2 items-center"></div>
+        <div class="shrink-0 sm:self-start">
           <a id="gallery-repo" href="#" target="_blank" rel="noopener noreferrer" 
-             class="inline-flex items-center justify-center p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all outline-none" title="Ver Repositorio Oficial">
-            <svg id="gallery-repo-icon" class="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+             class="inline-flex items-center gap-2 p-2 rounded text-gray-400 hover:text-white hover:bg-white/5 transition-colors outline-none" title="Ver Repositorio">
+            <span class="text-sm font-mono font-medium">Código</span>
+            <svg id="gallery-repo-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
           </a>
-          <button
-            type="button"
-            class="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/20"
-            data-close
-            aria-label="Cerrar galería"
-          >
-            Cerrar
-          </button>
         </div>
       </div>
 
       <!-- Área de Fotos -->
-      <div class="flex flex-col flex-1 min-h-0 gap-3">
-        <div class="rounded-2xl border border-white/10 bg-black/40 p-2 sm:p-4 flex items-center justify-center flex-1 min-h-0 relative">
+      <div class="flex flex-col flex-1 min-h-0 gap-4 mt-2">
+        <div class="rounded-lg border border-white/10 bg-[#161616] overflow-hidden flex items-center justify-center flex-1 min-h-0 relative group shadow-inner">
           <img
             id="gallery-preview"
             alt="Vista previa de la galería"
-            class="hidden h-full w-full rounded-xl object-contain shadow-inner absolute inset-0 p-2 sm:p-4"
+            class="hidden h-[95%] w-[95%] object-contain absolute m-auto p-1"
           />
 
-          <div id="gallery-empty" class="flex h-full w-full items-center justify-center rounded-xl border border-dashed border-white/15 bg-white/5 p-6 text-center text-gray-300 sm:p-10">
+          <div id="gallery-empty" class="flex h-full w-full items-center justify-center text-center text-gray-500 font-mono">
             <div>
-              <p class="text-xl font-semibold text-white sm:text-2xl">Aún no hay fotos en esta carpeta</p>
-              <p class="mt-3 text-sm text-slate-300 sm:text-lg">
-                Agrega imágenes en la carpeta correspondiente y se mostrarán aquí automáticamente.
-              </p>
+              <p class="text-xl sm:text-2xl">>_ Aún no hay fotos</p>
             </div>
           </div>
         </div>
 
-        <div class="rounded-2xl border border-white/10 bg-black/20 p-2 sm:p-3 shrink-0">
-          <div id="gallery-thumbs" class="no-scrollbar flex overflow-x-auto gap-2 sm:gap-3 pb-1 snap-x scroll-smooth items-center"></div>
+        <div class="">
+          <div id="gallery-thumbs" class="no-scrollbar flex overflow-x-auto gap-2 pb-2 snap-x scroll-smooth items-center"></div>
         </div>
       </div>
     </div>
@@ -358,10 +368,12 @@ const galleries = {
     const meta = projectMeta[projectKey];
     const images = galleries[projectKey] ?? [];
 
-    // Limpiar clases dinámicas del modal
-    modalPanel.className = `relative flex flex-col z-10 w-full max-w-[98vw] h-[95vh] rounded-3xl border ${meta.modalBorder} ${meta.modalBg} p-4 shadow-2xl ${meta.modalShadow} opacity-0 transition-opacity duration-300 ease-out sm:p-6 lg:max-w-[1200px] mx-auto`;
+    // Limpiar clases dinámicas del modal (diseño Minimalista)
+    modalPanel.className = `relative flex flex-col z-10 w-full max-w-[98vw] h-[95vh] rounded-[10px] border border-white/10 bg-[#1e1e1e] shadow-2xl opacity-0 transition-opacity duration-300 ease-out sm:max-w-[1100px] lg:max-w-[1200px] mx-auto overflow-hidden`;
 
+    document.getElementById('gallery-window-title').textContent = `${projectKey}.sh`;
     titleEl.textContent = meta.title;
+
     descEl.textContent = meta.description || '';
 
     thumbsEl.innerHTML = '';
@@ -403,6 +415,8 @@ const galleries = {
               <img
                 src="${src}"
                 alt="${meta.title} miniatura ${index + 1}"
+                loading="lazy"
+                decoding="async"
                 class="h-20 sm:h-28 w-full rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </button>
