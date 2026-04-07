@@ -40,13 +40,13 @@ const galleries = {
     </p>
   </div>
 
-  <div class="grid items-stretch gap-4 sm:gap-6 lg:grid-cols-2">
+  <div class="grid items-start gap-4 sm:gap-6 lg:grid-cols-2">
     <article
-      class="card group flex h-full w-full cursor-pointer rounded-lg border border-gray-600 bg-white/20 p-0 text-left shadow-lg opacity-0 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.015] hover:border-pink-300/50 hover:shadow-[0_18px_40px_rgba(236,72,153,0.15)] focus:outline-none focus:ring-2 focus:ring-pink-400/70"
+      class="card group flex flex-col w-full cursor-pointer rounded-lg border border-gray-600 bg-white/20 p-0 text-left shadow-lg opacity-0 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.015] hover:border-pink-300/50 hover:shadow-[0_18px_40px_rgba(236,72,153,0.15)] focus:outline-none focus:ring-2 focus:ring-pink-400/70"
       data-open-gallery="equigrafo"
       tabindex="0"
     >
-      <div class="flex h-full flex-1 flex-col p-4 transition-transform duration-300 sm:p-5 group-hover:scale-[1.01]">
+      <div class="flex flex-col p-4 transition-transform duration-300 sm:p-5 group-hover:scale-[1.01]">
         <img
           src="/assets/equigrafo.png"
           alt="Equigrafo"
@@ -58,7 +58,7 @@ const galleries = {
             {galleries.equigrafo.length} fotos
           </span>
         </div>
-        <p class="mb-3 flex flex-wrap items-center text-xs sm:text-sm">
+        <p class="mb-3 flex flex-wrap items-center text-xs sm:text-sm min-h-[28px]">
           <FaPython size={20} className="mr-1.5 text-[#ffde59] transition-transform transform hover:scale-110 hover:shadow-python" />
           <span class="text-[#ffde59] text-shadow-python">Python</span>
           <SiDjango size={20} className="mx-1.5 text-[#c1ff72] transition-transform transform hover:scale-110 hover:shadow-django" />
@@ -67,7 +67,7 @@ const galleries = {
           <span class="text-white text-shadow-selenium">Selenium</span>
         </p>
         
-        <div class="mt-auto text-xs leading-relaxed text-slate-200 sm:text-sm relative z-10" onclick="event.stopPropagation()">
+        <div class="mt-auto text-xs leading-relaxed text-slate-200 sm:text-sm relative z-10 min-h-[3.5rem]" onclick="event.stopPropagation()">
           <input type="checkbox" id="toggle-equigrafo" class="peer hidden" />
           <span class="cursor-text">Una tienda de cámaras con vista de productos</span><label for="toggle-equigrafo" class="peer-checked:hidden cursor-pointer text-pink-400 hover:text-pink-300 font-medium px-2 py-1 select-none transition-colors">... ver más</label><span class="hidden peer-checked:inline cursor-text">, inventario, estadísticas, generación de facturas, roles y herramientas administrativas.<br class="mt-1"><strong class="font-semibold text-pink-100">Tecnologías:</strong> Python, Django, Selenium, Bootstrap, MySQL, HTML, CSS, JavaScript.</span><label for="toggle-equigrafo" class="hidden peer-checked:inline-flex cursor-pointer text-pink-400 hover:text-pink-300 font-medium px-2 py-1 select-none transition-colors">(ocultar)</label>
         </div>
@@ -76,11 +76,11 @@ const galleries = {
     </article>
 
     <article
-      class="card group flex h-full w-full cursor-pointer rounded-lg border border-gray-600 bg-[#0097b2]/30 p-0 text-left shadow-lg opacity-0 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.015] hover:border-cyan-200/50 hover:shadow-[0_18px_40px_rgba(34,211,238,0.15)] focus:outline-none focus:ring-2 focus:ring-cyan-300/70"
+      class="card group flex flex-col w-full cursor-pointer rounded-lg border border-gray-600 bg-[#0097b2]/30 p-0 text-left shadow-lg opacity-0 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.015] hover:border-cyan-200/50 hover:shadow-[0_18px_40px_rgba(34,211,238,0.15)] focus:outline-none focus:ring-2 focus:ring-cyan-300/70"
       data-open-gallery="sportplus"
       tabindex="0"
     >
-      <div class="flex h-full flex-1 flex-col p-4 transition-transform duration-300 sm:p-5 group-hover:scale-[1.01]">
+      <div class="flex flex-col p-4 transition-transform duration-300 sm:p-5 group-hover:scale-[1.01]">
         <img
           src="/assets/sportplus.png"
           alt="SportPlus"
@@ -92,12 +92,12 @@ const galleries = {
             {galleries.sportplus.length} fotos
           </span>
         </div>
-        <p class="mb-3 flex items-center text-xs sm:text-sm">
+        <p class="mb-3 flex items-center text-xs sm:text-sm min-h-[28px]">
           <FaJava size={20} className="mr-1.5 text-red-500 transition-transform transform hover:scale-110 hover:shadow-java" />
           <span class="text-red-500 text-shadow-java">Java</span>
         </p>
         
-        <div class="mt-auto text-xs leading-relaxed text-white sm:text-sm relative z-10" onclick="event.stopPropagation()">
+        <div class="mt-auto text-xs leading-relaxed text-white sm:text-sm relative z-10 min-h-[3.5rem]" onclick="event.stopPropagation()">
           <input type="checkbox" id="toggle-sportplus" class="peer hidden" />
           <span class="cursor-text">Herramienta para tiendas deportivas con inventario</span><label for="toggle-sportplus" class="peer-checked:hidden cursor-pointer text-cyan-300 hover:text-cyan-200 font-medium px-2 py-1 select-none transition-colors">... ver más</label><span class="hidden peer-checked:inline cursor-text">, facturación, estadísticas, filtros y CRUD de empleados.</span><label for="toggle-sportplus" class="hidden peer-checked:inline-flex cursor-pointer text-cyan-300 hover:text-cyan-200 font-medium px-2 py-1 select-none transition-colors">(ocultar)</label>
         </div>
