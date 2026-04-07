@@ -1,6 +1,5 @@
 ---
-
-import { FaPython, FaJava } from 'react-icons/fa';
+import { FaPython, FaJava, FaGithub } from 'react-icons/fa';
 import { SiDjango, SiSelenium } from 'react-icons/si';
 
 const equigrafoImages = Object.entries(
@@ -46,17 +45,20 @@ const galleries = {
 
 ---
 
-<section class="container mx-auto px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-  <h2 class="mb-4 text-3xl font-semibold tracking-tight text-pink-500 sm:mb-6 sm:text-4xl lg:text-5xl">Proyectos</h2>
-  <p class="mb-8 max-w-3xl text-lg leading-relaxed text-slate-300 sm:mb-12 sm:text-xl lg:text-2xl">
-    Proyectos en los que he <span class="text-yellow-400">trabajado</span>.
-  </p>
+<section class="projects-section container mx-auto px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+  <h2 class="mb-4 text-4xl font-semibold text-pink-500 md:text-5xl">Proyectos</h2>
+  <div class="w-full sm:w-3/4 md:w-[60%] mt-8 mb-12">
+    <p class="project-paragraph relative group text-lg text-slate-300 sm:text-xl md:text-2xl leading-relaxed">
+      Un vistazo a lo que he <span class="text-[#ffde59]">construido</span>.
+      <span class="flash-overlay absolute inset-0 rounded-lg bg-pink-500 opacity-0 blur-lg transition duration-500 group-hover:opacity-20"></span>
+    </p>
+  </div>
 
   <div class="grid items-stretch gap-4 sm:gap-6 lg:grid-cols-2">
-    <button
-      type="button"
+    <article
       class="card group flex h-full w-full cursor-pointer rounded-lg border border-gray-600 bg-white/20 p-0 text-left shadow-lg opacity-0 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.015] hover:border-pink-300/50 hover:shadow-[0_18px_40px_rgba(236,72,153,0.15)] focus:outline-none focus:ring-2 focus:ring-pink-400/70"
       data-open-gallery="equigrafo"
+      tabindex="0"
     >
       <div class="flex h-full flex-1 flex-col p-4 transition-transform duration-300 sm:p-6 lg:p-8 group-hover:scale-[1.01]">
         <img
@@ -78,22 +80,19 @@ const galleries = {
           <SiSelenium size={28} className="mx-2 text-white transition-transform transform hover:scale-110 hover:shadow-selenium sm:mx-3 sm:size-[32px]" />
           <span class="text-white text-shadow-selenium">Selenium</span>
         </p>
-        <p class="text-base leading-relaxed text-slate-300 sm:text-lg lg:text-2xl">
-          Una tienda de cámaras con vista de productos, inventario, estadísticas, generación de facturas, roles y herramientas administrativas.
-        </p>
-        <p class="mt-4 text-base leading-relaxed text-slate-300 sm:mt-6 sm:text-lg lg:text-2xl">
-          <strong>Tecnologías:</strong> Python, Django, Selenium, Bootstrap, MySQL, HTML, CSS, JavaScript.
-        </p>
-        <p class="mt-4 pt-2 text-sm text-pink-200/90 transition duration-300 sm:mt-auto sm:pt-6 sm:text-base lg:text-lg group-hover:text-pink-100">
-          Haz clic para abrir la galería.
-        </p>
-      </div>
-    </button>
+        
+        <div class="mb-4 text-base leading-relaxed text-slate-200 sm:text-lg lg:text-xl relative z-10" onclick="event.stopPropagation()">
+          <input type="checkbox" id="toggle-equigrafo" class="peer hidden" />
+          <span class="cursor-text">Una tienda de cámaras con vista de productos</span><label for="toggle-equigrafo" class="peer-checked:hidden cursor-pointer text-pink-400 hover:text-pink-300 font-medium px-2 py-1 select-none transition-colors">... ver más</label><span class="hidden peer-checked:inline cursor-text">, inventario, estadísticas, generación de facturas, roles y herramientas administrativas. <strong class="font-semibold text-pink-100">Tecnologías:</strong> Python, Django, Selenium, Bootstrap, MySQL, HTML, CSS, JavaScript.</span><label for="toggle-equigrafo" class="hidden peer-checked:inline-flex cursor-pointer text-pink-400 hover:text-pink-300 font-medium px-2 py-1 select-none transition-colors">(ocultar)</label>
+        </div>
 
-    <button
-      type="button"
+      </div>
+    </article>
+
+    <article
       class="card group flex h-full w-full cursor-pointer rounded-lg border border-gray-600 bg-[#0097b2]/30 p-0 text-left shadow-lg opacity-0 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.015] hover:border-cyan-200/50 hover:shadow-[0_18px_40px_rgba(34,211,238,0.15)] focus:outline-none focus:ring-2 focus:ring-cyan-300/70"
       data-open-gallery="sportplus"
+      tabindex="0"
     >
       <div class="flex h-full flex-1 flex-col p-4 transition-transform duration-300 sm:p-6 lg:p-8 group-hover:scale-[1.01]">
         <img
@@ -111,14 +110,14 @@ const galleries = {
           <FaJava size={28} className="mr-2 text-red-500 transition-transform transform hover:scale-110 hover:shadow-java sm:mr-3 sm:size-[32px]" />
           <span class="text-red-500 text-shadow-java">Java</span>
         </p>
-        <p class="text-base leading-relaxed text-white sm:text-lg lg:text-2xl">
-          Herramienta para tiendas deportivas con inventario, facturación, estadísticas, filtros y CRUD de empleados.
-        </p>
-        <p class="mt-4 pt-2 text-sm text-white/90 transition duration-300 sm:mt-auto sm:pt-6 sm:text-base lg:text-lg group-hover:text-white">
-          Haz clic para abrir la galería.
-        </p>
+        
+        <div class="mb-4 text-base leading-relaxed text-white sm:text-lg lg:text-xl relative z-10" onclick="event.stopPropagation()">
+          <input type="checkbox" id="toggle-sportplus" class="peer hidden" />
+          <span class="cursor-text">Herramienta para tiendas deportivas con inventario</span><label for="toggle-sportplus" class="peer-checked:hidden cursor-pointer text-cyan-300 hover:text-cyan-200 font-medium px-2 py-1 select-none transition-colors">... ver más</label><span class="hidden peer-checked:inline cursor-text">, facturación, estadísticas, filtros y CRUD de empleados.</span><label for="toggle-sportplus" class="hidden peer-checked:inline-flex cursor-pointer text-cyan-300 hover:text-cyan-200 font-medium px-2 py-1 select-none transition-colors">(ocultar)</label>
+        </div>
+
       </div>
-    </button>
+    </article>
   </div>
 </section>
 
@@ -128,49 +127,78 @@ const galleries = {
 >
   <div class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-out" data-close data-modal-backdrop></div>
 
-  <div class="relative z-10 w-full max-w-[96vw] max-h-[92vh] overflow-y-auto rounded-3xl border border-gray-500/40 bg-[#0f172a]/95 p-4 shadow-2xl shadow-black/40 opacity-0 transition-opacity duration-300 ease-out sm:p-6 xl:max-w-[92vw]" data-modal-panel>
-    <button
-      type="button"
-      class="absolute right-3 top-3 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs text-white transition hover:bg-white/20 sm:right-4 sm:top-4 sm:px-4 sm:text-sm"
-      data-close
-      aria-label="Cerrar galería"
-    >
-      Cerrar
-    </button>
-
-    <div class="mb-6 pr-16 sm:pr-20">
-      <p id="gallery-kicker" class="mb-2 text-sm uppercase tracking-[0.3em] text-pink-300"></p>
-      <h3 id="gallery-title" class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl"></h3>
-      <p id="gallery-subtitle" class="mt-3 max-w-3xl text-sm text-slate-300 sm:text-base lg:text-lg"></p>
-    </div>
-
-    <div class="grid gap-4 lg:grid-cols-[1.7fr_0.8fr] lg:gap-6 xl:grid-cols-[1.9fr_0.75fr]">
-      <div class="rounded-3xl border border-white/10 bg-black/20 p-3">
-        <img
-          id="gallery-preview"
-          alt="Vista previa de la galería"
-          class="hidden h-full max-h-[52vh] w-full rounded-2xl bg-black/30 object-contain sm:max-h-[72vh]"
-        />
-
-        <div id="gallery-empty" class="flex min-h-[32vh] items-center justify-center rounded-2xl border border-dashed border-white/15 bg-white/5 p-6 text-center text-gray-300 sm:min-h-[40vh] sm:p-10">
-          <div>
-            <p class="text-xl font-semibold text-white sm:text-2xl">Aún no hay fotos en esta carpeta</p>
-            <p class="mt-3 text-sm text-slate-300 sm:text-lg">
-              Agrega imágenes en la carpeta correspondiente y se mostrarán aquí automáticamente.
-            </p>
-          </div>
+  <div class="relative flex flex-col z-10 w-full max-w-[98vw] h-[95vh] rounded-3xl border border-gray-500/40 bg-[#0f172a]/95 p-4 shadow-2xl shadow-black/40 opacity-0 transition-opacity duration-300 ease-out sm:p-6 lg:max-w-[1200px] mx-auto" data-modal-panel>
+    <div class="flex flex-col h-full w-full">
+      <!-- Encabezado simple -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+        <div>
+          <h3 id="gallery-title" class="text-2xl sm:text-4xl font-bold text-white"></h3>
+          <p id="gallery-description" class="text-sm sm:text-base text-gray-300 mt-1 sm:mt-2"></p>
+        </div>
+        <div class="flex items-center gap-3 sm:gap-4 shrink-0 sm:self-start">
+          <div id="gallery-stack" class="hidden sm:flex flex-wrap gap-2 items-center"></div>
+          <a id="gallery-repo" href="#" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center justify-center p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all outline-none" title="Ver Repositorio Oficial">
+            <svg id="gallery-repo-icon" class="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+          </a>
+          <button
+            type="button"
+            class="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/20"
+            data-close
+            aria-label="Cerrar galería"
+          >
+            Cerrar
+          </button>
         </div>
       </div>
 
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-4">
-        <p class="mb-4 text-sm uppercase tracking-[0.25em] text-gray-400">Fotos disponibles</p>
-        <div id="gallery-thumbs" class="no-scrollbar grid max-h-[32vh] grid-cols-2 gap-3 overflow-y-auto pr-1 sm:max-h-[72vh]"></div>
+      <!-- Área de Fotos -->
+      <div class="flex flex-col flex-1 min-h-0 gap-3">
+        <div class="rounded-2xl border border-white/10 bg-black/40 p-2 sm:p-4 flex items-center justify-center flex-1 min-h-0 relative">
+          <img
+            id="gallery-preview"
+            alt="Vista previa de la galería"
+            class="hidden h-full w-full rounded-xl object-contain shadow-inner absolute inset-0 p-2 sm:p-4"
+          />
+
+          <div id="gallery-empty" class="flex h-full w-full items-center justify-center rounded-xl border border-dashed border-white/15 bg-white/5 p-6 text-center text-gray-300 sm:p-10">
+            <div>
+              <p class="text-xl font-semibold text-white sm:text-2xl">Aún no hay fotos en esta carpeta</p>
+              <p class="mt-3 text-sm text-slate-300 sm:text-lg">
+                Agrega imágenes en la carpeta correspondiente y se mostrarán aquí automáticamente.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-black/20 p-2 sm:p-3 shrink-0">
+          <div id="gallery-thumbs" class="no-scrollbar flex overflow-x-auto gap-2 sm:gap-3 pb-1 snap-x scroll-smooth items-center"></div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <style>
+  .flash-active .flash-overlay {
+    animation: aboutFlash 1.8s ease-out;
+  }
+
+  @keyframes aboutFlash {
+    0% {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    30% {
+      opacity: 0.24;
+      transform: scale(1.02);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
   .shadow-lg {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
   }
@@ -247,22 +275,53 @@ const galleries = {
   const modalPanel = modal?.querySelector('[data-modal-panel]');
   const modalBackdrop = modal?.querySelector('[data-modal-backdrop]');
   const titleEl = document.getElementById('gallery-title');
-  const kickerEl = document.getElementById('gallery-kicker');
-  const subtitleEl = document.getElementById('gallery-subtitle');
+  const repoEl = document.getElementById('gallery-repo');
+  const repoIconEl = document.getElementById('gallery-repo-icon');
+  const stackEl = document.getElementById('gallery-stack');
   const previewEl = document.getElementById('gallery-preview');
   const emptyEl = document.getElementById('gallery-empty');
   const thumbsEl = document.getElementById('gallery-thumbs');
+  const descEl = document.getElementById('gallery-description');
   const closeTriggers = modal ? modal.querySelectorAll('[data-close]') : [];
+  
   const projectMeta = {
     equigrafo: {
       title: 'Equigrafo',
-      kicker: 'Galería del proyecto',
-      subtitle: 'Capturas del sistema para cámaras, inventario, productos, facturación y panel administrativo.',
+      repo: 'https://github.com/Matheuzk/Equigrafo',
+      stack: ['Python', 'Django', 'Selenium', 'MySQL', 'JavaScript'],
+      description: 'Automatiza la extracción de puntajes hípicos y estadísticas mediante Web Scraping y procesamiento en tiempo real.',
+      features: ['Extracción de datos asíncrona', 'Panel administrativo', 'Reportes en PDF', 'Calculadora de clasificaciones'],
+      installCmd: 'git clone https://github.com/Matheuzk/Equigrafo.git',
+      accentColor: 'pink',
+      checkIconColor: 'text-pink-400',
+      installBgColor: 'bg-pink-500',
+      btnBg: 'bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 border-pink-500/30',
+      iconColor: 'text-pink-400 group-hover:text-pink-300',
+      thumbHoverColor: 'hover:border-pink-400/50',
+      thumbFocusRing: 'focus:ring-pink-400/70',
+      modalBorder: 'border-pink-500/40',
+      modalShadow: 'shadow-pink-500/20',
+      modalBg: 'bg-[#1a0b12]/95',
+      badgeClass: 'text-pink-200 bg-pink-500/10 border border-pink-500/20'
     },
     sportplus: {
       title: 'SportPlus',
-      kicker: 'Galería del proyecto',
-      subtitle: 'Capturas del sistema para tienda deportiva, inicio de sesión, inventario, empleados y facturación.',
+      repo: 'https://github.com/Matheuzk/SportPlus',
+      stack: ['Java', 'MySQL'],
+      description: 'Sistema integral de Punto de Venta (POS) para tiendas con gestión avanzada de inventarios, clientes y proveedores.',
+      features: ['Facturación de ventas', 'Alerta de bajo stock', 'Múltiples sucursales', 'Cierre de caja en un clic'],
+      installCmd: 'git clone https://github.com/Matheuzk/SportPlus.git',
+      accentColor: 'cyan',
+      checkIconColor: 'text-cyan-400',
+      installBgColor: 'bg-cyan-500',
+      btnBg: 'bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border-cyan-500/30',
+      iconColor: 'text-cyan-400 group-hover:text-cyan-300',
+      thumbHoverColor: 'hover:border-cyan-400/50',
+      thumbFocusRing: 'focus:ring-cyan-400/70',
+      modalBorder: 'border-cyan-500/40',
+      modalShadow: 'shadow-cyan-500/20',
+      modalBg: 'bg-[#0f1b2a]/95',
+      badgeClass: 'text-cyan-200 bg-cyan-500/10 border border-cyan-500/20'
     },
   };
 
@@ -299,11 +358,27 @@ const galleries = {
     const meta = projectMeta[projectKey];
     const images = galleries[projectKey] ?? [];
 
+    // Limpiar clases dinámicas del modal
+    modalPanel.className = `relative flex flex-col z-10 w-full max-w-[98vw] h-[95vh] rounded-3xl border ${meta.modalBorder} ${meta.modalBg} p-4 shadow-2xl ${meta.modalShadow} opacity-0 transition-opacity duration-300 ease-out sm:p-6 lg:max-w-[1200px] mx-auto`;
+
     titleEl.textContent = meta.title;
-    kickerEl.textContent = meta.kicker;
-    subtitleEl.textContent = meta.subtitle;
+    descEl.textContent = meta.description || '';
 
     thumbsEl.innerHTML = '';
+    stackEl.innerHTML = '';
+
+    if (meta.repo) {
+      repoEl.href = meta.repo;
+      repoEl.classList.remove('hidden');
+    } else {
+      repoEl.classList.add('hidden');
+    }
+
+    if (meta.stack && meta.stack.length > 0) {
+      stackEl.innerHTML = meta.stack.map(tech => 
+        `<span class="px-3 py-1 rounded-full text-sm shadow-sm ${meta.badgeClass}">${tech}</span>`
+      ).join('');
+    }
 
     if (images.length > 0) {
       previewEl.classList.remove('hidden');
@@ -321,14 +396,14 @@ const galleries = {
           (src, index) => `
             <button
               type="button"
-              class="group overflow-hidden rounded-2xl border border-white/10 bg-black/20 p-1 text-left transition hover:-translate-y-1 hover:border-pink-300/50 focus:outline-none focus:ring-2 focus:ring-pink-300/70"
+              class="group shrink-0 snap-center overflow-hidden rounded-xl border-2 border-transparent bg-black/20 p-1 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 ${meta.thumbHoverColor} focus:outline-none focus:ring-2 ${meta.thumbFocusRing} w-[140px] sm:w-[180px]"
               data-thumb-index="${index}"
               aria-label="Ver imagen ${index + 1} de ${meta.title}"
             >
               <img
                 src="${src}"
                 alt="${meta.title} miniatura ${index + 1}"
-                class="h-32 w-full rounded-xl object-cover transition duration-300 group-hover:scale-[1.03]"
+                class="h-20 sm:h-28 w-full rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </button>
           `
@@ -339,6 +414,7 @@ const galleries = {
         button.addEventListener('click', () => {
           const index = Number(button.getAttribute('data-thumb-index'));
           setPreview(images[index], `${meta.title} - imagen ${index + 1}`);
+          button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         });
       });
     } else {
@@ -395,4 +471,38 @@ const galleries = {
   );
 
   cards.forEach((card) => observer.observe(card));
+
+  const projectsSection = document.querySelector('.projects-section');
+  const projectParagraphs = document.querySelectorAll('.project-paragraph');
+  
+  const playProjectSequence = () => {
+    projectParagraphs.forEach((paragraph, index) => {
+      paragraph.classList.remove('flash-active');
+      window.setTimeout(() => {
+        paragraph.classList.add('flash-active');
+        window.setTimeout(() => {
+          paragraph.classList.remove('flash-active');
+        }, 1800);
+      }, index * 520);
+    });
+  };
+
+  const projectObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          playProjectSequence();
+          projectObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.25,
+      rootMargin: '0px 0px -12% 0px',
+    }
+  );
+
+  if (projectsSection) {
+    projectObserver.observe(projectsSection);
+  }
 </script>

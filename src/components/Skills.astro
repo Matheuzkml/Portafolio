@@ -16,6 +16,7 @@ import {
 const categories = [
   {
     title: 'Frontend y UI',
+    colSpan: 'lg:col-span-2 md:col-span-2',
     accent: 'text-[#ffde59]',
     border: 'border-[#ffde59]/25',
     glow: 'from-[#ffde59]/10 to-transparent',
@@ -40,7 +41,7 @@ const categories = [
     ],
   },
   {
-    title: 'Datos y automatización',
+    title: 'Datos',
     accent: 'text-[#5ce1e6]',
     border: 'border-[#5ce1e6]/25',
     glow: 'from-[#5ce1e6]/10 to-transparent',
@@ -54,20 +55,22 @@ const categories = [
 ---
 
 <section id="skills" class="skills-section container mx-auto px-8 mt-24" style="scroll-margin-top: 96px;">
-  <div class="max-w-4xl">
+  <div>
     <h2 class="mb-4 text-4xl font-semibold text-[#ffde59] md:text-5xl">
       Tecnologías y habilidades
     </h2>
-    <p class="skills-intro relative group text-lg leading-relaxed text-slate-300 transition-colors duration-300 sm:text-xl md:text-2xl">
-      Herramientas y tecnologías que utilizo para construir interfaces, automatizar procesos y desarrollar soluciones confiables.
-      <span class="flash-overlay absolute inset-0 rounded-lg bg-[#ffde59] opacity-0 blur-lg transition duration-500 group-hover:opacity-15"></span>
-    </p>
+    <div class="w-full sm:w-3/4 md:w-1/2 mt-8 mb-4">
+      <p class="skill-paragraph relative group text-lg leading-relaxed text-slate-300 sm:text-xl md:text-2xl">
+        Las herramientas que uso a <span class="text-[#5ce1e6]">diario</span>.
+        <span class="flash-overlay absolute inset-0 rounded-lg bg-[#ffde59] opacity-0 blur-lg transition duration-500 group-hover:opacity-20"></span>
+      </p>
+    </div>
   </div>
 
-  <div class="mt-12 grid gap-6 lg:grid-cols-3">
+  <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4 w-full">
     {categories.map((category) => (
-      <article class={`skill-card group relative overflow-hidden rounded-3xl border ${category.border} bg-white/10 p-6 backdrop-blur-sm opacity-0`}>
-        <div class={`absolute inset-0 bg-gradient-to-br ${category.glow} opacity-80`}></div>
+      <article class={`skill-card ${category.colSpan || ''} group relative overflow-hidden rounded-3xl border ${category.border} bg-white/10 p-6 backdrop-blur-sm opacity-0`}>
+        <div class="absolute inset-0 bg-gradient-to-br ${category.glow} opacity-80"></div>
 
         <div class="relative z-10">
           <h3 class={`mb-5 text-2xl font-semibold ${category.accent} md:text-3xl`}>
@@ -90,28 +93,26 @@ const categories = [
 
 <script type="module" is:inline>
   const section = document.querySelector('.skills-section');
-  const intro = document.querySelector('.skills-intro');
   const cards = document.querySelectorAll('.skill-card');
-  let introPlayed = false;
+  const paragraphs = document.querySelectorAll('.skill-paragraph');
 
-  const playIntroFlash = () => {
-    if (!intro || introPlayed) {
-      return;
-    }
-
-    introPlayed = true;
-    intro.classList.add('flash-active');
-
-    window.setTimeout(() => {
-      intro.classList.remove('flash-active');
-    }, 1800);
+  const playSequence = () => {
+    paragraphs.forEach((paragraph, index) => {
+      paragraph.classList.remove('flash-active');
+      window.setTimeout(() => {
+        paragraph.classList.add('flash-active');
+        window.setTimeout(() => {
+          paragraph.classList.remove('flash-active');
+        }, 1800);
+      }, index * 520);
+    });
   };
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          playIntroFlash();
+          playSequence();
 
           const visibleCards = Array.from(cards);
 
@@ -137,12 +138,23 @@ const categories = [
 </script>
 
 <style>
-  .skills-intro.flash-active .flash-overlay {
-    animation: skillFlash 1.8s ease-out;
+  .flash-active .flash-overlay {
+    animation: aboutFlash 1.8s ease-out;
   }
 
-  .skills-intro:hover {
-    color: #ffde59;
+  @keyframes aboutFlash {
+    0% {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    30% {
+      opacity: 0.24;
+      transform: scale(1.02);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
   }
 
   @keyframes skillFlash {
