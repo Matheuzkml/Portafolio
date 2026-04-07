@@ -9,7 +9,12 @@
     spore.style.top = `${e.pageY - height / 2}px`;
     spore.style.width = `${width}px`;
     spore.style.height = `${height}px`;
-    spore.style.background = 'radial-gradient(circle, rgba(255,248,220,0.7) 0%, transparent 70%)';
+    
+    // Verificar si el modo oscuro está activo
+    const isDark = document.documentElement.classList.contains('dark');
+    const trailColor = isDark ? 'rgba(255,248,220,0.7)' : 'rgba(48,48,48,0.5)';
+    spore.style.background = `radial-gradient(circle, ${trailColor} 0%, transparent 70%)`;
+    
     spore.style.borderRadius = '50%';
     spore.style.pointerEvents = 'none';
     spore.style.filter = 'blur(2px)';
