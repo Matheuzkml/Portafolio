@@ -15,11 +15,12 @@ import {
 
 const categories = [
   {
-    title: 'Frontend y UI',
+    titleEs: 'Frontend y UI',
+    titleEn: 'Frontend & UI',
     colSpan: 'col-span-2 lg:col-span-2 md:col-span-2',
-    accent: 'text-[#ffde59]',
-    border: 'border-[#ffde59]/25',
-    glow: 'from-[#ffde59]/10 to-transparent',
+    accent: 'dark:text-[#ffde59]',
+    border: 'dark:border-[#ffde59]/25',
+    glow: 'dark:from-[#ffde59]/10 dark:to-transparent',
     items: [
       { label: 'Astro', Icon: SiAstro, color: 'text-[#ff5d9e]' },
       { label: 'Vue', Icon: SiVuedotjs, color: 'text-[#42d392]' },
@@ -30,10 +31,11 @@ const categories = [
     ],
   },
   {
-    title: 'Backend',
-    accent: 'text-[#cb6ce6]',
-    border: 'border-[#cb6ce6]/25',
-    glow: 'from-[#cb6ce6]/10 to-transparent',
+    titleEs: 'Backend',
+    titleEn: 'Backend',
+    accent: 'dark:text-[#cb6ce6]',
+    border: 'dark:border-[#cb6ce6]/25',
+    glow: 'dark:from-[#cb6ce6]/10 dark:to-transparent',
     items: [
       { label: 'Python', Icon: FaPython, color: 'text-[#ffde59]' },
       { label: 'Java', Icon: FaJava, color: 'text-[#ff5757]' },
@@ -41,10 +43,11 @@ const categories = [
     ],
   },
   {
-    title: 'Datos',
-    accent: 'text-[#5ce1e6]',
-    border: 'border-[#5ce1e6]/25',
-    glow: 'from-[#5ce1e6]/10 to-transparent',
+    titleEs: 'Datos',
+    titleEn: 'Data',
+    accent: 'dark:text-[#5ce1e6]',
+    border: 'dark:border-[#5ce1e6]/25',
+    glow: 'dark:from-[#5ce1e6]/10 dark:to-transparent',
     items: [
       { label: 'SQL', Icon: FaDatabase, color: 'text-[#7dd3fc]' },
       { label: 'MySQL', Icon: SiMysql, color: 'text-[#f59e0b]' },
@@ -57,11 +60,12 @@ const categories = [
 <section id="skills" class="skills-section container mx-auto px-8 mt-24" style="scroll-margin-top: 96px;">
   <div>
     <h2 class="mb-4 text-3xl font-semibold text-[#ffde59] md:text-4xl">
-      Tecnologías y habilidades
+      <span class="lang-es">Tecnologías y habilidades</span><span class="lang-en">Technologies and skills</span>
     </h2>
     <div class="w-full sm:w-3/4 md:w-1/2 mt-8 mb-4">
-      <p class="skill-paragraph relative group text-lg sm:text-xl leading-relaxed text-slate-300">
-        Las herramientas que uso a <span class="text-[#5ce1e6]">diario</span>.
+      <p class="skill-paragraph relative group text-lg sm:text-xl leading-relaxed text-slate-700 dark:text-slate-300 transition-colors duration-300">
+        <span class="lang-es">Las herramientas que uso a <span class="text-[#5ce1e6]">diario</span>.</span>
+        <span class="lang-en">The tools I use on a <span class="text-[#5ce1e6]">daily</span> basis.</span>
         <span class="flash-overlay absolute inset-0 rounded-lg bg-[#ffde59] opacity-0 blur-lg transition duration-500 group-hover:opacity-20"></span>
       </p>
     </div>
@@ -69,17 +73,17 @@ const categories = [
 
   <div class="mt-12 grid gap-6 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 w-full">
     {categories.map((category) => (
-      <article class={`skill-card ${category.colSpan || ''} group relative overflow-hidden rounded-3xl border ${category.border} bg-white/10 p-4 sm:p-6 backdrop-blur-sm opacity-0`}>
-        <div class="absolute inset-0 bg-gradient-to-br ${category.glow} opacity-80"></div>
+      <article class={`skill-card ${category.colSpan || ''} group relative overflow-hidden rounded-3xl border border-slate-300 dark:border-white/10 ${category.border} bg-white/60 dark:bg-white/10 shadow-sm dark:shadow-none p-4 sm:p-6 backdrop-blur-sm opacity-0 transition-colors duration-300`}>
+        <div class={`absolute inset-0 bg-gradient-to-br ${category.glow} opacity-0 dark:opacity-80 transition-opacity duration-300`}></div>
 
         <div class="relative z-10">
-          <h3 class={`mb-4 sm:mb-5 text-xl sm:text-2xl font-semibold ${category.accent} md:text-3xl`}>
-            {category.title}
+          <h3 class={`mb-4 sm:mb-5 text-xl sm:text-2xl font-semibold text-slate-800 ${category.accent} transition-colors duration-300 md:text-3xl`}>
+            <span class="lang-es">{category.titleEs}</span><span class="lang-en">{category.titleEn}</span>
           </h3>
 
           <div class="flex flex-wrap gap-2 md:gap-2.5 w-full">
             {category.items.map((item) => (
-              <span class="skill-chip inline-flex w-fit items-center justify-center gap-1.5 sm:gap-2 rounded-[1rem] border border-white/10 bg-[#0f172a]/70 px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs md:text-[13px] text-slate-100 transition duration-300 group-hover:-translate-y-1 group-hover:border-white/20">
+              <span class="skill-chip inline-flex w-fit items-center justify-center gap-1.5 sm:gap-2 rounded-[1rem] border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0f172a]/70 shadow-sm dark:shadow-none px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs md:text-[13px] text-slate-700 dark:text-slate-100 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-slate-400 dark:group-hover:border-white/20">
                 <item.Icon className={`${item.color} text-sm sm:text-base md:text-[1.1rem] shrink-0`} />
                 <span class="truncate whitespace-nowrap">{item.label}</span>
               </span>

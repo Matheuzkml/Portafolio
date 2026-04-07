@@ -32,17 +32,18 @@ const galleries = {
 ---
 
 <section class="projects-section container mx-auto px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-  <h2 class="mb-4 text-3xl font-semibold text-pink-500 md:text-4xl">Proyectos</h2>
+  <h2 class="mb-4 text-3xl font-semibold text-pink-500 md:text-4xl"><span class="lang-es">Proyectos</span><span class="lang-en">Projects</span></h2>
   <div class="w-full sm:w-3/4 md:w-[60%] mt-4 mb-8">
-    <p class="project-paragraph relative group text-lg text-slate-300 sm:text-xl leading-relaxed">
-      Un vistazo a lo que he <span class="text-[#ffde59]">construido</span>.
+    <p class="project-paragraph relative group text-lg text-slate-700 dark:text-slate-300 sm:text-xl leading-relaxed transition-colors duration-300">
+      <span class="lang-es">Un vistazo a lo que he <span class="text-pink-500 dark:text-[#ffde59]">construido</span>.</span>
+      <span class="lang-en">A glimpse of what I've <span class="text-pink-500 dark:text-[#ffde59]">built</span>.</span>
       <span class="flash-overlay absolute inset-0 rounded-lg bg-pink-500 opacity-0 blur-lg transition duration-500 group-hover:opacity-20"></span>
     </p>
   </div>
 
   <div class="grid items-start gap-4 sm:gap-6 lg:grid-cols-2">
     <article
-      class="card group flex flex-col w-full cursor-pointer rounded-lg border border-gray-600 bg-white/20 p-0 text-left shadow-lg opacity-0 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.015] hover:border-pink-300/50 hover:shadow-[0_18px_40px_rgba(236,72,153,0.15)] focus:outline-none focus:ring-2 focus:ring-pink-400/70"
+      class="card group flex flex-col w-full cursor-pointer rounded-lg border border-slate-300 dark:border-gray-600 bg-white dark:bg-white/20 p-0 text-left shadow-lg opacity-0 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.015] hover:border-pink-400 dark:hover:border-pink-300/50 hover:shadow-[0_18px_40px_rgba(236,72,153,0.15)] focus:outline-none focus:ring-2 focus:ring-pink-400/70"
       data-open-gallery="equigrafo"
       tabindex="0"
     >
@@ -50,33 +51,33 @@ const galleries = {
         <img
           src="/assets/equigrafo.png"
           alt="Equigrafo"
-          class="mb-3 h-40 w-full rounded-md object-cover transition duration-300 sm:h-48 lg:h-52 group-hover:brightness-110 group-hover:shadow-[0_12px_30px_rgba(0,0,0,0.35)]"
+          class="mb-3 h-40 w-full rounded-md object-cover transition duration-300 sm:h-48 lg:h-52 group-hover:brightness-110 group-hover:shadow-[0_12px_30px_rgba(236,72,153,0.2)] dark:group-hover:shadow-[0_12px_30px_rgba(0,0,0,0.35)]"
         />
         <div class="mb-2 flex items-start justify-between gap-3 sm:gap-4">
-          <h3 class="text-lg font-semibold text-white sm:text-xl lg:text-2xl">Equigrafo</h3>
-          <span class="shrink-0 rounded-full border border-pink-400/40 bg-pink-500/10 px-2 py-1 text-xs text-pink-200">
-            {galleries.equigrafo.length} fotos
+          <h3 class="text-lg font-semibold text-slate-800 dark:text-white sm:text-xl lg:text-2xl transition-colors duration-300">Equigrafo</h3>
+          <span class="shrink-0 rounded-full border border-pink-400/40 bg-pink-100 dark:bg-pink-500/10 px-2 py-1 text-xs text-pink-600 dark:text-pink-200 transition-colors duration-300">
+            {galleries.equigrafo.length} <span class="lang-es">fotos</span><span class="lang-en">photos</span>
           </span>
         </div>
         <p class="mb-3 flex flex-wrap items-center text-xs sm:text-sm min-h-[28px]">
-          <FaPython size={20} className="mr-1.5 text-[#ffde59] transition-transform transform hover:scale-110 hover:shadow-python" />
-          <span class="text-[#ffde59] text-shadow-python">Python</span>
-          <SiDjango size={20} className="mx-1.5 text-[#c1ff72] transition-transform transform hover:scale-110 hover:shadow-django" />
-          <span class="text-[#c1ff72] text-shadow-django">Django</span>
-          <SiSelenium size={20} className="mx-1.5 text-white transition-transform transform hover:scale-110 hover:shadow-selenium" />
-          <span class="text-white text-shadow-selenium">Selenium</span>
+          <FaPython size={20} className="mr-1.5 text-yellow-500 dark:text-[#ffde59] transition-transform transform hover:scale-110 hover:shadow-python" />
+          <span class="text-yellow-600 dark:text-[#ffde59] text-shadow-python font-medium dark:font-normal">Python</span>
+          <SiDjango size={20} className="mx-1.5 text-green-500 dark:text-[#c1ff72] transition-transform transform hover:scale-110 hover:shadow-django" />
+          <span class="text-green-600 dark:text-[#c1ff72] text-shadow-django font-medium dark:font-normal">Django</span>
+          <SiSelenium size={20} className="mx-1.5 text-slate-700 dark:text-white transition-transform transform hover:scale-110 hover:shadow-selenium" />
+          <span class="text-slate-700 dark:text-white text-shadow-selenium font-medium dark:font-normal">Selenium</span>
         </p>
         
-        <div class="mt-auto text-xs leading-relaxed text-slate-200 sm:text-sm relative z-10 min-h-[3.5rem]" onclick="event.stopPropagation()">
+        <div class="mt-auto text-xs leading-relaxed text-slate-600 dark:text-slate-200 sm:text-sm relative z-10 min-h-[3.5rem] transition-colors duration-300" onclick="event.stopPropagation()">
           <input type="checkbox" id="toggle-equigrafo" class="peer hidden" />
-          <span class="cursor-text">Una tienda de cámaras con vista de productos</span><label for="toggle-equigrafo" class="peer-checked:hidden cursor-pointer text-pink-400 hover:text-pink-300 font-medium px-2 py-1 select-none transition-colors">... ver más</label><span class="hidden peer-checked:inline cursor-text">, inventario, estadísticas, generación de facturas, roles y herramientas administrativas.<br class="mt-1"><strong class="font-semibold text-pink-100">Tecnologías:</strong> Python, Django, Selenium, Bootstrap, MySQL, HTML, CSS, JavaScript.</span><label for="toggle-equigrafo" class="hidden peer-checked:inline-flex cursor-pointer text-pink-400 hover:text-pink-300 font-medium px-2 py-1 select-none transition-colors">(ocultar)</label>
+          <span class="cursor-text lang-es">Una tienda de cámaras con vista de productos</span><span class="cursor-text lang-en">A camera store with product view</span><label for="toggle-equigrafo" class="peer-checked:hidden cursor-pointer text-pink-500 dark:text-pink-400 hover:text-pink-400 dark:hover:text-pink-300 font-semibold dark:font-medium px-2 py-1 select-none transition-colors"><span class="lang-es">... ver más</span><span class="lang-en">... see more</span></label><span class="hidden peer-checked:inline cursor-text"><span class="lang-es">, inventario, estadísticas, generación de facturas, roles y herramientas administrativas.<br class="mt-1"><strong class="font-bold dark:font-semibold text-pink-600 dark:text-pink-100">Tecnologías:</strong></span><span class="lang-en">, inventory, statistics, invoice generation, roles, and administrative tools.<br class="mt-1"><strong class="font-bold dark:font-semibold text-pink-600 dark:text-pink-100">Technologies:</strong></span> Python, Django, Selenium, Bootstrap, MySQL, HTML, CSS, JavaScript.</span><label for="toggle-equigrafo" class="hidden peer-checked:inline-flex cursor-pointer text-pink-500 dark:text-pink-400 hover:text-pink-400 dark:hover:text-pink-300 font-semibold dark:font-medium px-2 py-1 select-none transition-colors"><span class="lang-es">(ocultar)</span><span class="lang-en">(hide)</span></label>
         </div>
 
       </div>
     </article>
 
     <article
-      class="card group flex flex-col w-full cursor-pointer rounded-lg border border-gray-600 bg-[#0097b2]/30 p-0 text-left shadow-lg opacity-0 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.015] hover:border-cyan-200/50 hover:shadow-[0_18px_40px_rgba(34,211,238,0.15)] focus:outline-none focus:ring-2 focus:ring-cyan-300/70"
+      class="card group flex flex-col w-full cursor-pointer rounded-lg border border-slate-300 dark:border-gray-600 bg-cyan-50 dark:bg-[#0097b2]/30 p-0 text-left shadow-lg opacity-0 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.015] hover:border-cyan-400 dark:hover:border-cyan-200/50 hover:shadow-[0_18px_40px_rgba(34,211,238,0.15)] focus:outline-none focus:ring-2 focus:ring-cyan-300/70"
       data-open-gallery="sportplus"
       tabindex="0"
     >
@@ -84,22 +85,22 @@ const galleries = {
         <img
           src="/assets/sportplus.png"
           alt="SportPlus"
-          class="mb-3 h-40 w-full rounded-md object-cover transition duration-300 sm:h-48 lg:h-52 group-hover:brightness-110 group-hover:shadow-[0_12px_30px_rgba(0,0,0,0.35)]"
+          class="mb-3 h-40 w-full rounded-md object-cover transition duration-300 sm:h-48 lg:h-52 group-hover:brightness-110 group-hover:shadow-[0_12px_30px_rgba(34,211,238,0.2)] dark:group-hover:shadow-[0_12px_30px_rgba(0,0,0,0.35)]"
         />
         <div class="mb-2 flex items-start justify-between gap-3 sm:gap-4">
-          <h3 class="text-lg font-semibold text-white sm:text-xl lg:text-2xl">SportPlus</h3>
-          <span class="shrink-0 rounded-full border border-cyan-200/40 bg-cyan-500/10 px-2 py-1 text-xs text-cyan-100">
-            {galleries.sportplus.length} fotos
+          <h3 class="text-lg font-semibold text-slate-800 dark:text-white sm:text-xl lg:text-2xl transition-colors duration-300">SportPlus</h3>
+          <span class="shrink-0 rounded-full border border-cyan-300/40 bg-cyan-100 dark:bg-cyan-500/10 px-2 py-1 text-xs text-cyan-700 dark:text-cyan-100 transition-colors duration-300">
+            {galleries.sportplus.length} <span class="lang-es">fotos</span><span class="lang-en">photos</span>
           </span>
         </div>
         <p class="mb-3 flex items-center text-xs sm:text-sm min-h-[28px]">
           <FaJava size={20} className="mr-1.5 text-red-500 transition-transform transform hover:scale-110 hover:shadow-java" />
-          <span class="text-red-500 text-shadow-java">Java</span>
+          <span class="text-red-600 dark:text-red-500 text-shadow-java font-medium dark:font-normal">Java</span>
         </p>
         
-        <div class="mt-auto text-xs leading-relaxed text-white sm:text-sm relative z-10 min-h-[3.5rem]" onclick="event.stopPropagation()">
+        <div class="mt-auto text-xs leading-relaxed text-slate-700 dark:text-white sm:text-sm relative z-10 min-h-[3.5rem] transition-colors duration-300" onclick="event.stopPropagation()">
           <input type="checkbox" id="toggle-sportplus" class="peer hidden" />
-          <span class="cursor-text">Herramienta para tiendas deportivas con inventario</span><label for="toggle-sportplus" class="peer-checked:hidden cursor-pointer text-cyan-300 hover:text-cyan-200 font-medium px-2 py-1 select-none transition-colors">... ver más</label><span class="hidden peer-checked:inline cursor-text">, facturación, estadísticas, filtros y CRUD de empleados.</span><label for="toggle-sportplus" class="hidden peer-checked:inline-flex cursor-pointer text-cyan-300 hover:text-cyan-200 font-medium px-2 py-1 select-none transition-colors">(ocultar)</label>
+          <span class="cursor-text"><span class="lang-es">Herramienta para tiendas deportivas con inventario</span><span class="lang-en">Tool for sports stores with inventory</span></span><label for="toggle-sportplus" class="peer-checked:hidden cursor-pointer text-cyan-600 dark:text-cyan-300 hover:text-cyan-500 dark:hover:text-cyan-200 font-semibold dark:font-medium px-2 py-1 select-none transition-colors"><span class="lang-es">... ver más</span><span class="lang-en">... see more</span></label><span class="hidden peer-checked:inline cursor-text"><span class="lang-es">, facturación, estadísticas, filtros y CRUD de empleados.</span><span class="lang-en">, billing, statistics, filters, and employee CRUD.</span></span><label for="toggle-sportplus" class="hidden peer-checked:inline-flex cursor-pointer text-cyan-600 dark:text-cyan-300 hover:text-cyan-500 dark:hover:text-cyan-200 font-semibold dark:font-medium px-2 py-1 select-none transition-colors"><span class="lang-es">(ocultar)</span><span class="lang-en">(hide)</span></label>
         </div>
 
       </div>
@@ -111,12 +112,12 @@ const galleries = {
   id="project-gallery-modal"
   class="fixed inset-0 z-50 flex items-end justify-center p-3 sm:items-center sm:p-4 opacity-0 invisible pointer-events-none transition-[opacity,visibility] duration-300 ease-out"
 >
-  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-out" data-close data-modal-backdrop></div>
+  <div class="absolute inset-0 bg-slate-900/30 dark:bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-out" data-close data-modal-backdrop></div>
 
-  <div class="relative flex flex-col z-10 w-full max-w-[98vw] h-[95vh] rounded-[10px] border border-white/10 bg-[#1e1e1e] shadow-2xl opacity-0 transition-opacity duration-300 ease-out sm:max-w-[1100px] lg:max-w-[1200px] mx-auto overflow-hidden" data-modal-panel>
+  <div class="relative flex flex-col z-10 w-full max-w-[98vw] h-[95vh] rounded-[10px] border border-slate-300 dark:border-white/10 bg-[#f6f4f0] dark:bg-[#1e1e1e] shadow-2xl opacity-0 transition-opacity duration-300 ease-out sm:max-w-[1100px] lg:max-w-[1200px] mx-auto overflow-hidden" data-modal-panel>
     
     <!-- Diseño minimalista de Terminal / Mac Window Header -->
-    <div id="gallery-window-header" class="flex items-center justify-between bg-black/20 px-3 py-2 shrink-0 select-none relative z-20">
+    <div id="gallery-window-header" class="flex items-center justify-between bg-transparent px-3 py-2 shrink-0 select-none relative z-20">
       <!-- Botones Mac (Cerrar, Minimizar, Maximizar) -->
       <div class="flex items-center gap-2">
         <button type="button" data-close class="w-3.5 h-3.5 rounded-full bg-[#ff5f56] hover:bg-[#ff6b62] shadow-[0_0_8px_rgba(255,95,86,0.6)] hover:shadow-[0_0_15px_rgba(255,95,86,1)] border border-black/10 outline-none group flex items-center justify-center transition-all" aria-label="Cerrar">
@@ -133,9 +134,9 @@ const galleries = {
 
       <!-- Botón GitHub en la barra superior Mac -->
       <div class="flex items-center">
-        <a id="gallery-repo" href="#" target="_blank" rel="noopener noreferrer" 
-           class="group relative inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300 hover:text-white transition-all duration-300 outline-none border border-white/10 hover:border-white/40 hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]" title="Ver Repositorio">
-          <span class="text-xs sm:text-sm font-mono font-medium">Código</span>
+        <a id="gallery-repo" href="#" target="_blank" rel="noopener noreferrer"
+           class="group relative inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-pink-100 hover:bg-pink-200 text-pink-700 dark:bg-white/5 dark:hover:bg-white/15 dark:text-gray-300 dark:hover:text-white transition-all duration-300 outline-none border border-pink-200 hover:border-pink-300 dark:border-white/10 dark:hover:border-white/40 dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] shadow-sm dark:shadow-none" title="Ver Repositorio">
+          <span class="text-xs sm:text-sm font-mono font-medium"><span class="lang-es">Código</span><span class="lang-en">Code</span></span>
           <svg id="gallery-repo-icon" class="w-4 h-4 sm:w-[18px] sm:h-[18px] transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
         </a>
       </div>
@@ -145,7 +146,7 @@ const galleries = {
     <div class="flex flex-col h-full w-full p-2 sm:p-4 min-h-0 bg-transparent flex-1 relative">
 
       <div class="hidden">
-        <h3 id="gallery-title" class="text-xl font-mono font-bold text-white tracking-tight"></h3>
+        <h3 id="gallery-title" class="text-xl font-mono font-bold text-slate-800 dark:text-white tracking-tight"></h3>
       </div>
 
       <!-- Área de Fotos -->
@@ -154,12 +155,12 @@ const galleries = {
           <img
             id="gallery-preview"
             alt="Vista previa de la galería"
-            class="hidden h-full w-full object-contain absolute m-auto"
+            class="hidden h-full w-full object-contain absolute m-auto drop-shadow-xl"
           />
 
-          <div id="gallery-empty" class="flex h-full w-full items-center justify-center text-center text-gray-500 font-mono">
+          <div id="gallery-empty" class="flex h-full w-full items-center justify-center text-center text-slate-500 dark:text-gray-500 font-mono">
             <div>
-              <p class="text-xl sm:text-2xl">>_ Aún no hay fotos</p>
+              <p class="text-xl sm:text-2xl">>_ <span class="lang-es">Aún no hay fotos</span><span class="lang-en">No photos yet</span></p>
             </div>
           </div>
         </div>
@@ -286,33 +287,33 @@ const galleries = {
       accentColor: 'pink',
       checkIconColor: 'text-pink-400',
       installBgColor: 'bg-pink-500',
-      btnBg: 'bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 border-pink-500/30',
-      iconColor: 'text-pink-400 group-hover:text-pink-300',
-      thumbHoverColor: 'hover:border-pink-400/50',
-      thumbFocusRing: 'focus:ring-pink-400/70',
-      modalBorder: 'border-pink-500/40',
-      modalShadow: 'shadow-pink-500/20',
-      modalBg: 'bg-[#3b3b3b]/98',
-      badgeClass: 'text-pink-200 bg-pink-500/10 border border-pink-500/20'
+btnBg: 'bg-pink-100 hover:bg-pink-200 text-pink-600 border-pink-400/30 dark:bg-pink-500/20 dark:hover:bg-pink-500/30 dark:text-pink-300 dark:border-pink-500/30',
+      iconColor: 'text-pink-600 group-hover:text-pink-500 dark:text-pink-400 dark:group-hover:text-pink-300',
+      thumbHoverColor: 'hover:border-pink-400/50 dark:hover:border-pink-400/50',
+      thumbFocusRing: 'focus:ring-pink-400/50 dark:focus:ring-pink-400/70',
+      modalBorder: 'border-pink-300/40 dark:border-pink-500/40',
+      modalShadow: 'shadow-pink-500/10 dark:shadow-pink-500/20',
+      modalBg: 'bg-[#f6f4f0] dark:bg-[#3b3b3b]/98',
+      badgeClass: 'text-pink-700 bg-pink-100 border border-pink-300/40 dark:text-pink-200 dark:bg-pink-500/10 dark:border-pink-500/20'
     },
     sportplus: {
       title: 'SportPlus',
       repo: 'https://github.com/Matheuzk/SportPlus',
       stack: ['Java', 'MySQL'],
       description: 'Sistema integral de Punto de Venta (POS) para tiendas con gestión avanzada de inventarios, clientes y proveedores.',
-      features: ['Facturación de ventas', 'Alerta de bajo stock', 'Múltiples sucursales', 'Cierre de caja en un clic'],
+      features: ['Facturación de ventas', 'Alerta de bajo stock', 'Múltiples sucursales', 'Cierre de caja en un clic'], 
       installCmd: 'git clone https://github.com/Matheuzk/SportPlus.git',
       accentColor: 'cyan',
-      checkIconColor: 'text-cyan-400',
-      installBgColor: 'bg-cyan-500',
-      btnBg: 'bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border-cyan-500/30',
-      iconColor: 'text-cyan-400 group-hover:text-cyan-300',
-      thumbHoverColor: 'hover:border-cyan-400/50',
-      thumbFocusRing: 'focus:ring-cyan-400/70',
-      modalBorder: 'border-cyan-500/40',
-      modalShadow: 'shadow-cyan-500/20',
-      modalBg: 'bg-[#0f1b2a]/95',
-      badgeClass: 'text-cyan-200 bg-cyan-500/10 border border-cyan-500/20'
+      checkIconColor: 'text-cyan-500 dark:text-cyan-400',
+      installBgColor: 'bg-cyan-400 dark:bg-cyan-500',
+      btnBg: 'bg-cyan-100 hover:bg-cyan-200 text-cyan-700 border-cyan-400/30 dark:bg-cyan-500/20 dark:hover:bg-cyan-500/30 dark:text-cyan-300 dark:border-cyan-500/30',
+      iconColor: 'text-cyan-600 group-hover:text-cyan-500 dark:text-cyan-400 dark:group-hover:text-cyan-300',
+      thumbHoverColor: 'hover:border-cyan-400/50 dark:hover:border-cyan-400/50',
+      thumbFocusRing: 'focus:ring-cyan-300/60 dark:focus:ring-cyan-400/70',
+      modalBorder: 'border-cyan-300/40 dark:border-cyan-500/40',
+      modalShadow: 'shadow-cyan-500/10 dark:shadow-cyan-500/20',
+      modalBg: 'bg-[#f6f4f0] dark:bg-[#0f1b2a]/95',
+      badgeClass: 'text-cyan-800 bg-cyan-100 border border-cyan-300/40 dark:text-cyan-200 dark:bg-cyan-500/10 dark:border-cyan-500/20'
     },
   };
 
@@ -350,11 +351,12 @@ const galleries = {
     const images = galleries[projectKey] ?? [];
 
     // Limpiar clases dinámicas del modal y aplicar colores del proyecto
-    modalPanel.className = `relative flex flex-col z-10 w-full max-w-[98vw] h-[95vh] rounded-[10px] border border-white/10 ${meta.modalBg} shadow-2xl opacity-0 transition-opacity duration-300 ease-out sm:max-w-[1100px] lg:max-w-[1200px] mx-auto overflow-hidden ring-1 ring-inset ring-${meta.accentColor}-500/20`;
+    modalPanel.className = `relative flex flex-col z-10 w-full max-w-[98vw] h-[95vh] rounded-[10px] border border-slate-300 dark:border-white/10 ${meta.modalBg} shadow-2xl opacity-0 transition-opacity duration-300 ease-out sm:max-w-[1100px] lg:max-w-[1200px] mx-auto overflow-hidden ring-1 ring-inset ring-${meta.accentColor}-500/20`;
 
     // Cambiar color de la barra superior dependiendo del proyecto
-    document.getElementById('gallery-window-header').className = `flex items-center justify-between bg-black/20 px-3 py-2 shrink-0 select-none relative z-20`;
+    document.getElementById('gallery-window-header').className = `flex items-center justify-between bg-transparent px-3 py-2 shrink-0 select-none relative z-20`;
 
+    document.getElementById('gallery-window-title').className = `absolute left-1/2 -translate-x-1/2 text-center text-xs font-mono text-slate-600 dark:text-gray-400 tracking-wide select-none`;
     document.getElementById('gallery-window-title').textContent = `${projectKey}.sh`;
     titleEl.textContent = meta.title;
 
@@ -383,7 +385,7 @@ const galleries = {
           (src, index) => `
             <button
               type="button"
-              class="group relative z-20 shrink-0 snap-center overflow-hidden rounded-xl border-2 border-transparent bg-black/20 p-1 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 ${meta.thumbHoverColor} focus:outline-none focus:ring-2 ${meta.thumbFocusRing} w-[100px] sm:w-[130px] mt-1"
+              class="group relative z-20 shrink-0 snap-center overflow-hidden rounded-xl border-2 border-transparent bg-slate-200/50 dark:bg-black/20 p-1 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 ${meta.thumbHoverColor} focus:outline-none focus:ring-2 ${meta.thumbFocusRing} w-[100px] sm:w-[130px] mt-1"
               data-thumb-index="${index}"
               aria-label="Ver imagen ${index + 1} de ${meta.title}"
             >

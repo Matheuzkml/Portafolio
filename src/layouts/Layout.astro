@@ -6,8 +6,32 @@ import '../styles/global.css';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portafolio</title>
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return 'dark'; // Por defecto oscuro
+      })();
+    
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+      window.localStorage.setItem('theme', theme);
+
+      const lang = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('lang')) {
+          return localStorage.getItem('lang');
+        }
+        return 'es'; // Por defecto español
+      })();
+      document.documentElement.lang = lang;
+      window.localStorage.setItem('lang', lang);
+    </script>
   </head>
-  <body class="bg-[#121212] text-slate-100 min-h-screen relative antialiased">
+  <body class="bg-[#f6f4f0] dark:bg-[#121212] text-slate-800 dark:text-slate-100 min-h-screen relative antialiased transition-colors duration-300">
     <slot />
   </body>
 </html>
