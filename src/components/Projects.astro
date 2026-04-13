@@ -266,6 +266,12 @@ const galleries = {
 <script type="module" is:inline define:vars={{ galleries }}>
   const cards = document.querySelectorAll('.card');
   const modal = document.getElementById('project-gallery-modal');
+  
+  // MOVER EL MODAL AL BODY PARA EVITAR PROBLEMAS DE POSICIONAMIENTO CON ANIMACIONES ANCESTROS
+  if (modal && modal.parentElement !== document.body) {
+    document.body.appendChild(modal);
+  }
+
   const modalPanel = modal?.querySelector('[data-modal-panel]');
   const modalBackdrop = modal?.querySelector('[data-modal-backdrop]');
   const titleEl = document.getElementById('gallery-title');
