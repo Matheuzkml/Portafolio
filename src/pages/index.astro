@@ -6,26 +6,36 @@ import Skills from '../components/Skills.astro';
 import Projects from '../components/Projects.astro';
 import SiteNav from '../components/SiteNav.astro';
 import CursorTrail from '../components/CursorTrail.astro';
+import Footer from '../components/Footer.astro';
 ---
 <Layout>
 	<main class="flex flex-col items-center justify-start px-4 sm:px-6 lg:px-32 pt-8 sm:pt-12 pb-16">
 		<SiteNav />
 
-		<div class="mt-16 sm:mt-20 w-full flex justify-center">
+		<div class="reveal w-full mt-16 sm:mt-20 flex justify-center">
 			<Welcome />
 		</div>
 
+		<!-- Cada sección principal individualmente aplicará el delay y el reveal desenfocado -->
 		<div id="about" class="w-full mt-16 sm:mt-20">
-			<AboutMe />
+			<div class="reveal">
+				<AboutMe />
+			</div>
 		</div>
 
 		<div id="skills" class="w-full mt-16 sm:mt-20">
-			<Skills />
+			<div class="reveal">
+				<Skills />
+			</div>
 		</div>
 
 		<div id="projects" class="w-full mt-16 sm:mt-20">
-			<Projects />
+			<div class="reveal">
+				<Projects />
+			</div>
 		</div>
+		
+		<Footer />
 	</main>
 
 	<CursorTrail />

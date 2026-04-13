@@ -30,6 +30,32 @@ html[lang="en"] .lang-es {
   display: none !important;
 }
 
+/* Animaciones de scroll / revelado minimalista */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(1.5px);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease-out;
+  /* Se elimina el transition-delay predeterminado, JS lo controlará */
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Animación de colores pastel fluida (Color animado para textos) */
+@keyframes pastel-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-pastel-flow {
+  background-size: 200% auto;
+  animation: pastel-flow 6s linear infinite;
+}
+
 @keyframes spore {
   0% {
     opacity: 1;

@@ -1,11 +1,44 @@
 ---
 import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+}
+
+const {
+  title = 'Mi Portafolio',
+  description = 'Portafolio de desarrollo web, proyectos y habilidades.',
+  image = '/og-image.jpg', // Cambia esto por la ruta de tu imagen real
+  url = Astro.url.href, // Obtiene la URL actual automáticamente
+} = Astro.props;
 ---
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portafolio</title>
+    <title>{title}</title>
+
+    <!-- Meta Tags Básicos -->
+    <meta name="description" content={description} />
+    <meta name="author" content="Mathe" /> <!-- Cambia Mathe por tu nombre completo -->
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
     <script is:inline>
       const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -33,5 +66,70 @@ import '../styles/global.css';
   </head>
   <body class="bg-[#f6f4f0] dark:bg-[#121212] text-slate-800 dark:text-slate-100 min-h-screen relative antialiased transition-colors duration-300">
     <slot />
+
+    <script is:inline>
+      // Script para detectar scroll y aplicar la clase activa a los elementos minimalistas (.reveal)
+      document.addEventListener('DOMContentLoaded', () => {
+        let lastScrollY = window.scrollY;
+
+        // Detector de dirección de scroll para invertir animaciones
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > lastScrollY) {
+            document.body.classList.remove('scroll-up');
+            document.body.classList.add('scroll-down');
+          } else {
+            document.body.classList.remove('scroll-down');
+            document.body.classList.add('scroll-up');
+          }
+          lastScrollY = window.scrollY;
+        }, { passive: true });
+
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.15
+        };
+
+        // Lógica de animaciones repetidas con efecto cascada invertido
+        const observer = new IntersectionObserver((entries) => {
+          const entering = [];
+          const leaving = [];
+          
+          // Agrupar elementos que entran a la vista y los que salen
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entering.push(entry);
+            } else {
+              leaving.push(entry);
+            }
+          });
+
+          // Los que salen de pantalla: ocultar, desenfocar y hacerlo de inmediato
+          leaving.forEach(entry => {
+            entry.target.style.transitionDelay = '0ms';
+            entry.target.classList.remove('active');
+          });
+
+          // Los que entran a pantalla: mostrar con cascada animada
+          if (entering.length > 0) {
+            // Ordenar por su posición vertical (de arriba a abajo)
+            entering.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+            
+            // Si el usuario hace scroll hacia arriba, revertimos la lista
+            if (document.body.classList.contains('scroll-up')) {
+              entering.reverse();
+            }
+
+            entering.forEach((entry, index) => {
+              // Mágico delay en cascada (0ms, 150ms, 300ms...)
+              entry.target.style.transitionDelay = `${index * 150}ms`;
+              entry.target.classList.add('active');
+            });
+          }
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      });
+    </script>
   </body>
 </html>
