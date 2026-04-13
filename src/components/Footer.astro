@@ -1,0 +1,54 @@
+---
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt } from 'react-icons/fa'
+
+const currentYear = new Date().getFullYear();
+const email = "valenciarojaskm@gmail.com"; 
+const phone = "3106794916"; 
+---
+
+<footer class="w-full mt-40 mb-16 pt-24 border-t border-slate-200 dark:border-white/10 flex flex-col items-center bg-transparent">
+  <div class="w-full max-w-3xl px-8 flex flex-col items-center text-center gap-12 reveal delay-100">
+    
+    <!-- Branding -->
+    <div class="flex flex-col items-center gap-2">
+      <div class="text-3xl md:text-4xl font-mono font-medium tracking-tight text-slate-800 dark:text-white flex items-center justify-center">
+        <span style="color: #ffde59;">&#123;</span>
+        <span class="mx-2 font-semibold">Matheuzkm</span>
+        <span style="color: #ff66c4;">&#125;</span>
+      </div>
+    </div>
+
+    <!-- Contacto & CV -->
+    <div class="flex flex-col items-center gap-6 reveal delay-200">
+      <div class="flex flex-col gap-4 text-base md:text-lg font-medium text-slate-600 dark:text-slate-400">
+        <a href={`mailto:${email}`} class="flex items-center justify-center gap-3 hover:text-pink-500 dark:hover:text-pink-400 transition-colors group">
+          <FaEnvelope className="text-slate-400 group-hover:text-pink-500 dark:group-hover:text-pink-400 text-lg" />
+          {email}
+        </a>
+        <a href={`tel:${phone.replace(/\s+/g, '')}`} class="flex items-center justify-center gap-3 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors group">
+          <FaPhoneAlt className="text-slate-400 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 text-lg" />
+          {phone}
+        </a>
+      </div>
+
+      <a href="/CV.pdf" target="_blank" class="w-fit mt-2 inline-flex items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold uppercase tracking-wider rounded-lg bg-pink-50 dark:bg-pink-500/10 text-pink-600 dark:text-pink-300 hover:bg-pink-100 dark:hover:bg-pink-500/20 border border-pink-200 dark:border-pink-500/20 transition-all duration-300" download>
+        <span class="lang-es">Descargar CV</span><span class="lang-en hidden">Download CV</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      </a>
+
+      <div class="flex items-center justify-center gap-5 mt-4">
+        <a href="https://github.com/Matheuzk" target="_blank" class="p-3 rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-500 dark:text-slate-300 transition-all border border-transparent hover:border-slate-300 dark:hover:border-white/20" aria-label="GitHub">
+          <FaGithub size={20} />
+        </a>
+        <a href="https://www.linkedin.com/in/mateo-antonio-valencia-rojas-409454326/" target="_blank" class="p-3 rounded-full bg-slate-100 dark:bg-white/5 hover:bg-blue-50 dark:hover:bg-[#0a66c2]/20 text-slate-500 dark:text-slate-300 hover:text-[#0a66c2] transition-all border border-transparent hover:border-blue-200 dark:hover:border-[#0a66c2]/30" aria-label="LinkedIn">
+          <FaLinkedin size={20} />
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="w-full max-w-[1400px] px-8 sm:px-12 lg:px-16 mt-24 pt-10 border-t border-slate-100 dark:border-white/5 flex flex-col items-center gap-4 text-xs font-mono text-slate-400 dark:text-slate-500 reveal delay-300">
+    <p class="text-center">mateo antonio valencia rojas</p>
+  </div>
+</footer>
