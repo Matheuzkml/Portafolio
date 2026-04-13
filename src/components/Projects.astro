@@ -282,6 +282,20 @@ const galleries = {
   const thumbsEl = document.getElementById('gallery-thumbs');
   const closeTriggers = modal ? modal.querySelectorAll('[data-close]') : [];
   
+  // PRECARGA DE IMÁGENES
+  // Carga todas las imágenes de la galería en segundo plano cuando la página termina de cargar
+  window.addEventListener('load', () => {
+    // Retrasar precarga ligeramente para no interferir con la renderización inicial
+    setTimeout(() => {
+      Object.values(galleries).flat().forEach((src) => {
+        if (typeof src === 'string') {
+          const img = new Image();
+          img.src = src;
+        }
+      });
+    }, 1000);
+  });
+
   const projectMeta = {
     equigrafo: {
       title: 'Equigrafo',
