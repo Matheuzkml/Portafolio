@@ -1,7 +1,8 @@
 ---
 import { FaPython, FaJava, FaGithub } from 'react-icons/fa';
-import { SiDjango, SiSelenium } from 'react-icons/si';
+import { SiDjango, SiSelenium, SiJavascript, SiNodedotjs, SiPostgresql } from 'react-icons/si';
 import { getImage } from 'astro:assets';
+import ProjectGallery from './ProjectGallery.astro';
 
 const getOptimizedImages = async (globMap: any) => {
   const entries = Object.entries(globMap).sort(([a], [b]) => a.localeCompare(b, 'es'));
@@ -25,6 +26,10 @@ const sportplusImages = await getOptimizedImages(
 );
 
 const galleries = {
+  aguadulce: [
+    ...Object.values(import.meta.glob('../assets/projects/aguadulce/*.mp4', { eager: true, query: '?url', import: 'default' })),
+    ...await getOptimizedImages(import.meta.glob('../assets/projects/aguadulce/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' })),
+  ],
   equigrafo: equigrafoImages,
   sportplus: sportplusImages,
 };
@@ -42,6 +47,30 @@ const galleries = {
   </div>
 
   <div class="grid items-start gap-4 sm:gap-6 lg:grid-cols-2">
+    <article
+      class="card group flex flex-col w-full cursor-pointer rounded-lg border border-[#b9d5c0] dark:border-[#a8cfb0]/25 bg-[#e5f0e7] dark:bg-[#24382d] p-0 text-left shadow-lg opacity-0 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.015] hover:border-[#83ad8e] dark:hover:border-[#b8dfc0]/60 hover:shadow-[0_18px_40px_rgba(168,207,176,0.12)] focus:outline-none focus:ring-2 focus:ring-[#a8cfb0]/70"
+      data-open-gallery="aguadulce" tabindex="0"
+    >
+      <div class="flex flex-col p-4 transition-transform duration-300 sm:p-5 group-hover:scale-[1.01]">
+        <video data-project-cover src="/assets/aguadulcevideo.mp4" poster="/assets/aguadulce.png" muted loop playsinline preload="metadata" aria-label="Vista previa de Aguadulce"
+          class="mb-3 h-40 w-full rounded-md object-cover transition duration-300 sm:h-48 lg:h-52 group-hover:brightness-110 group-hover:shadow-[0_12px_30px_rgba(168,207,176,0.15)]" />
+        <div class="mb-2 flex items-start justify-between gap-3 sm:gap-4">
+          <h3 class="text-lg font-semibold text-[#2f513c] dark:text-[#d3ebd8] sm:text-xl lg:text-2xl transition-colors duration-300">Aguadulce</h3>
+          <span class="shrink-0 rounded-full border border-[#83ad8e]/40 bg-[#cfe3d3] dark:bg-[#a8cfb0]/10 px-2 py-1 text-xs text-[#365d43] dark:text-[#c4e3cc]">
+            {galleries.aguadulce.length - 1} <span class="lang-es">fotos y 1 video</span><span class="lang-en">photos and 1 video</span>
+          </span>
+        </div>
+        <p class="mb-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs sm:text-sm min-h-[28px]">
+          <span class="inline-flex items-center gap-1.5 text-yellow-700 dark:text-[#ffde59]"><SiJavascript size={20} />JavaScript</span>
+          <span class="inline-flex items-center gap-1.5 text-[#365d43] dark:text-[#b8dfc0]"><SiNodedotjs size={20} />Node.js</span>
+          <span class="inline-flex items-center gap-1.5 text-sky-700 dark:text-sky-200"><SiPostgresql size={20} />PostgreSQL</span>
+        </p>
+        <div class="mt-auto text-xs leading-relaxed text-slate-600 dark:text-slate-200 sm:text-sm relative z-10 min-h-[3.5rem]" onclick="event.stopPropagation()">
+          <input type="checkbox" id="toggle-aguadulce" class="peer hidden" />
+          <span class="cursor-text"><span class="lang-es">Plataforma de gestión para restaurantes con carta digital y pedidos por mesa</span><span class="lang-en">Restaurant management platform with a digital menu and table ordering</span></span><label for="toggle-aguadulce" class="peer-checked:hidden cursor-pointer text-[#365d43] dark:text-[#b8dfc0] hover:underline font-semibold px-2 py-1 select-none"><span class="lang-es">... ver más</span><span class="lang-en">... see more</span></label><span class="hidden peer-checked:inline cursor-text"><span class="lang-es">. Integra módulos de meseros, cocina y caja, junto con control de inventario y administración de usuarios por roles, para organizar la operación del restaurante desde una sola plataforma.<br class="mt-1"><strong class="font-bold dark:font-semibold text-[#365d43] dark:text-[#d3ebd8]">Tecnologías:</strong></span><span class="lang-en">. Combines waiter, kitchen and cashier modules with inventory tracking and role-based user management to organize restaurant operations in one platform.<br class="mt-1"><strong class="font-bold dark:font-semibold text-[#365d43] dark:text-[#d3ebd8]">Technologies:</strong></span> JavaScript, Vite, Tailwind CSS, Node.js, Express, Prisma, PostgreSQL, Supabase.</span><label for="toggle-aguadulce" class="hidden peer-checked:inline-flex cursor-pointer text-[#365d43] dark:text-[#b8dfc0] hover:underline font-semibold px-2 py-1 select-none"><span class="lang-es">(ocultar)</span><span class="lang-en">(hide)</span></label>
+        </div>
+      </div>
+    </article>
     <article
       class="card group flex flex-col w-full cursor-pointer rounded-lg border border-slate-300 dark:border-gray-600 bg-white dark:bg-white/20 p-0 text-left shadow-lg opacity-0 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.015] hover:border-pink-400 dark:hover:border-pink-300/50 hover:shadow-[0_18px_40px_rgba(236,72,153,0.15)] focus:outline-none focus:ring-2 focus:ring-pink-400/70"
       data-open-gallery="equigrafo"
@@ -108,70 +137,7 @@ const galleries = {
   </div>
 </section>
 
-<div
-  id="project-gallery-modal"
-  class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 opacity-0 invisible pointer-events-none transition-[opacity,visibility] duration-300 ease-out"
->
-  <div class="absolute inset-0 bg-slate-900/30 dark:bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-out" data-close data-modal-backdrop></div>
-
-  <div class="relative flex flex-col z-10 w-full max-w-[98vw] h-[85dvh] sm:h-[90dvh] lg:h-[95vh] rounded-[10px] border border-slate-300 dark:border-white/10 bg-[#f6f4f0] dark:bg-[#1e1e1e] shadow-2xl opacity-0 transition-opacity duration-300 ease-out sm:max-w-[1100px] lg:max-w-[1200px] mx-auto overflow-hidden" data-modal-panel>
-    
-    <!-- Diseño minimalista de Terminal / Mac Window Header -->
-    <div id="gallery-window-header" class="flex items-center justify-between bg-transparent px-3 py-2 shrink-0 select-none relative z-20">
-      <!-- Botones Mac (Cerrar, Minimizar, Maximizar) -->
-      <div class="flex items-center gap-2">
-        <button type="button" data-close class="w-3.5 h-3.5 rounded-full bg-[#ff5f56] hover:bg-[#ff6b62] shadow-[0_0_8px_rgba(255,95,86,0.6)] hover:shadow-[0_0_15px_rgba(255,95,86,1)] border border-black/10 outline-none group flex items-center justify-center transition-all" aria-label="Cerrar">
-           <svg class="w-2.5 h-2.5 text-black/70 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-        <div class="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] hover:bg-[#ffca4d] shadow-[0_0_8px_rgba(255,189,46,0.6)] hover:shadow-[0_0_15px_rgba(255,189,46,1)] border border-black/10 transition-all cursor-default"></div>
-        <div class="w-3.5 h-3.5 rounded-full bg-[#27c93f] hover:bg-[#32e04d] shadow-[0_0_8px_rgba(39,201,63,0.6)] hover:shadow-[0_0_15px_rgba(39,201,63,1)] border border-black/10 transition-all cursor-default"></div>
-      </div>
-      
-      <!-- Título de la terminal -->
-      <div id="gallery-window-title" class="absolute left-1/2 -translate-x-1/2 text-center text-xs font-mono text-gray-400 tracking-wide select-none hidden min-[380px]:block max-w-[40%] truncate">
-        proyecto.sh
-      </div>
-
-      <!-- Botón GitHub en la barra superior Mac -->
-      <div class="flex items-center">
-        <a id="gallery-repo" href="#" target="_blank" rel="noopener noreferrer"
-           class="group relative inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-lg bg-pink-100 hover:bg-pink-200 text-pink-700 dark:bg-white/5 dark:hover:bg-white/15 dark:text-gray-300 dark:hover:text-white transition-all duration-300 outline-none border border-pink-200 hover:border-pink-300 dark:border-white/10 dark:hover:border-white/40 dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] shadow-sm dark:shadow-none" title="Ver Repositorio">
-          <span class="hidden sm:inline text-xs sm:text-sm font-mono font-medium"><span class="lang-es">Código</span><span class="lang-en">Code</span></span>
-          <svg id="gallery-repo-icon" class="w-4 h-4 sm:w-[18px] sm:h-[18px] transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Contenido Principal -->
-    <div class="flex flex-col h-full w-full p-2 sm:p-4 min-h-0 bg-transparent flex-1 relative">
-
-      <div class="hidden">
-        <h3 id="gallery-title" class="text-xl font-mono font-bold text-slate-800 dark:text-white tracking-tight"></h3>
-      </div>
-
-      <!-- Área de Fotos -->
-      <div class="flex flex-col flex-1 min-h-0 gap-2 sm:gap-4 mt-1 sm:mt-2">
-        <div class="overflow-hidden flex items-center justify-center flex-1 min-h-0 relative group">
-          <img
-            id="gallery-preview"
-            alt="Vista previa de la galería"
-            class="hidden h-full w-full object-contain absolute m-auto drop-shadow-xl"
-          />
-
-          <div id="gallery-empty" class="flex h-full w-full items-center justify-center text-center text-slate-500 dark:text-gray-500 font-mono">
-            <div>
-              <p class="text-xl sm:text-2xl">>_ <span class="lang-es">Aún no hay fotos</span><span class="lang-en">No photos yet</span></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="relative z-10 pt-1">
-          <div id="gallery-thumbs" class="no-scrollbar flex overflow-x-auto gap-2 pb-2 snap-x scroll-smooth items-center justify-start md:justify-center"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<ProjectGallery galleries={galleries} />
 
 <style>
   .flash-active .flash-overlay {
@@ -264,207 +230,7 @@ const galleries = {
 </style>
 
 <script type="module" is:inline define:vars={{ galleries }}>
-  const cards = document.querySelectorAll('.card');
-  const modal = document.getElementById('project-gallery-modal');
-  
-  // MOVER EL MODAL AL BODY PARA EVITAR PROBLEMAS DE POSICIONAMIENTO CON ANIMACIONES ANCESTROS
-  if (modal && modal.parentElement !== document.body) {
-    document.body.appendChild(modal);
-  }
-
-  const modalPanel = modal?.querySelector('[data-modal-panel]');
-  const modalBackdrop = modal?.querySelector('[data-modal-backdrop]');
-  const titleEl = document.getElementById('gallery-title');
-  const repoEl = document.getElementById('gallery-repo');
-  const repoIconEl = document.getElementById('gallery-repo-icon');
-  const previewEl = document.getElementById('gallery-preview');
-  const emptyEl = document.getElementById('gallery-empty');
-  const thumbsEl = document.getElementById('gallery-thumbs');
-  const closeTriggers = modal ? modal.querySelectorAll('[data-close]') : [];
-  
-  // PRECARGA DE IMÁGENES
-  // Carga todas las imágenes de la galería en segundo plano cuando la página termina de cargar
-  window.addEventListener('load', () => {
-    // Retrasar precarga ligeramente para no interferir con la renderización inicial
-    setTimeout(() => {
-      Object.values(galleries).flat().forEach((src) => {
-        if (typeof src === 'string') {
-          const img = new Image();
-          img.src = src;
-        }
-      });
-    }, 1000);
-  });
-
-  const projectMeta = {
-    equigrafo: {
-      title: 'Equigrafo',
-      repo: 'https://github.com/Matheuzk/Equigrafo',
-      stack: ['Python', 'Django', 'Selenium', 'MySQL', 'JavaScript'],
-      description: 'Automatiza la extracción de puntajes hípicos y estadísticas mediante Web Scraping y procesamiento en tiempo real.',
-      features: ['Extracción de datos asíncrona', 'Panel administrativo', 'Reportes en PDF', 'Calculadora de clasificaciones'],
-      installCmd: 'git clone https://github.com/Matheuzk/Equigrafo.git',
-      accentColor: 'pink',
-      checkIconColor: 'text-pink-400',
-      installBgColor: 'bg-pink-500',
-btnBg: 'bg-pink-100 hover:bg-pink-200 text-pink-600 border-pink-400/30 dark:bg-pink-500/20 dark:hover:bg-pink-500/30 dark:text-pink-300 dark:border-pink-500/30',
-      iconColor: 'text-pink-600 group-hover:text-pink-500 dark:text-pink-400 dark:group-hover:text-pink-300',
-      thumbHoverColor: 'hover:border-pink-400/50 dark:hover:border-pink-400/50',
-      thumbFocusRing: 'focus:ring-pink-400/50 dark:focus:ring-pink-400/70',
-      modalBorder: 'border-pink-300/40 dark:border-pink-500/40',
-      modalShadow: 'shadow-pink-500/10 dark:shadow-pink-500/20',
-      modalBg: 'bg-[#f6f4f0] dark:bg-[#3b3b3b]/98',
-      badgeClass: 'text-pink-700 bg-pink-100 border border-pink-300/40 dark:text-pink-200 dark:bg-pink-500/10 dark:border-pink-500/20'
-    },
-    sportplus: {
-      title: 'SportPlus',
-      repo: 'https://github.com/Matheuzk/SportPlus',
-      stack: ['Java', 'MySQL'],
-      description: 'Sistema integral de Punto de Venta (POS) para tiendas con gestión avanzada de inventarios, clientes y proveedores.',
-      features: ['Facturación de ventas', 'Alerta de bajo stock', 'Múltiples sucursales', 'Cierre de caja en un clic'], 
-      installCmd: 'git clone https://github.com/Matheuzk/SportPlus.git',
-      accentColor: 'cyan',
-      checkIconColor: 'text-cyan-500 dark:text-cyan-400',
-      installBgColor: 'bg-cyan-400 dark:bg-cyan-500',
-      btnBg: 'bg-cyan-100 hover:bg-cyan-200 text-cyan-700 border-cyan-400/30 dark:bg-cyan-500/20 dark:hover:bg-cyan-500/30 dark:text-cyan-300 dark:border-cyan-500/30',
-      iconColor: 'text-cyan-600 group-hover:text-cyan-500 dark:text-cyan-400 dark:group-hover:text-cyan-300',
-      thumbHoverColor: 'hover:border-cyan-400/50 dark:hover:border-cyan-400/50',
-      thumbFocusRing: 'focus:ring-cyan-300/60 dark:focus:ring-cyan-400/70',
-      modalBorder: 'border-cyan-300/40 dark:border-cyan-500/40',
-      modalShadow: 'shadow-cyan-500/10 dark:shadow-cyan-500/20',
-      modalBg: 'bg-[#f6f4f0] dark:bg-[#0f1b2a]/95',
-      badgeClass: 'text-cyan-800 bg-cyan-100 border border-cyan-300/40 dark:text-cyan-200 dark:bg-cyan-500/10 dark:border-cyan-500/20'
-    },
-  };
-
-  const getScrollbarWidth = () => window.innerWidth - document.documentElement.clientWidth;
-
-  const openModalAnimation = () => {
-    if (!modal || !modalPanel || !modalBackdrop) return;
-
-    modal.classList.remove('invisible', 'pointer-events-none');
-    modal.classList.add('opacity-100');
-
-    requestAnimationFrame(() => {
-      modalBackdrop.classList.add('opacity-100');
-      modalPanel.classList.remove('opacity-0');
-      modalPanel.classList.add('opacity-100');
-    });
-  };
-
-  const closeModalAnimation = () => {
-    if (!modal || !modalPanel || !modalBackdrop) return;
-
-    modalBackdrop.classList.remove('opacity-100');
-    modalPanel.classList.remove('opacity-100');
-    modalPanel.classList.add('opacity-0');
-    modal.classList.remove('opacity-100');
-    modal.classList.add('opacity-0');
-
-    window.setTimeout(() => {
-      modal.classList.add('invisible', 'pointer-events-none');
-    }, 300);
-  };
-
-  const openModal = (projectKey) => {
-    const meta = projectMeta[projectKey];
-    const images = galleries[projectKey] ?? [];
-
-    // Limpiar clases dinámicas del modal y aplicar colores del proyecto
-    modalPanel.className = `relative flex flex-col z-10 w-full max-w-[98vw] h-[95vh] rounded-[10px] border border-slate-300 dark:border-white/10 ${meta.modalBg} shadow-2xl opacity-0 transition-opacity duration-300 ease-out sm:max-w-[1100px] lg:max-w-[1200px] mx-auto overflow-hidden ring-1 ring-inset ring-${meta.accentColor}-500/20`;
-
-    // Cambiar color de la barra superior dependiendo del proyecto
-    document.getElementById('gallery-window-header').className = `flex items-center justify-between bg-transparent px-3 py-2 shrink-0 select-none relative z-20`;
-
-    document.getElementById('gallery-window-title').className = `absolute left-1/2 -translate-x-1/2 text-center text-xs font-mono text-slate-600 dark:text-gray-400 tracking-wide select-none`;
-    document.getElementById('gallery-window-title').textContent = `${projectKey}.sh`;
-    titleEl.textContent = meta.title;
-
-    thumbsEl.innerHTML = '';
-
-    if (meta.repo) {
-      repoEl.href = meta.repo;
-      repoEl.classList.remove('hidden');
-    } else {
-      repoEl.classList.add('hidden');
-    }
-
-    if (images.length > 0) {
-      previewEl.classList.remove('hidden');
-      emptyEl.classList.add('hidden');
-
-      const setPreview = (src, alt) => {
-        previewEl.src = src;
-        previewEl.alt = alt;
-      };
-
-      setPreview(images[0], `${meta.title} - imagen principal`);
-
-      thumbsEl.innerHTML = images
-        .map(
-          (src, index) => `
-            <button
-              type="button"
-              class="group relative z-20 shrink-0 snap-center overflow-hidden rounded-xl border-2 border-transparent bg-slate-200/50 dark:bg-black/20 p-1 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 ${meta.thumbHoverColor} focus:outline-none focus:ring-2 ${meta.thumbFocusRing} w-[100px] sm:w-[130px] mt-1"
-              data-thumb-index="${index}"
-              aria-label="Ver imagen ${index + 1} de ${meta.title}"
-            >
-              <img
-                src="${src}"
-                alt="${meta.title} miniatura ${index + 1}"
-                loading="lazy"
-                decoding="async"
-                class="h-16 sm:h-[4.5rem] w-full rounded-lg object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </button>
-          `
-        )
-        .join('');
-
-      thumbsEl.querySelectorAll('[data-thumb-index]').forEach((button) => {
-        button.addEventListener('click', () => {
-          const index = Number(button.getAttribute('data-thumb-index'));
-          setPreview(images[index], `${meta.title} - imagen ${index + 1}`);
-          button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        });
-      });
-    } else {
-      previewEl.classList.add('hidden');
-      emptyEl.classList.remove('hidden');
-    }
-
-    const scrollbarWidth = getScrollbarWidth();
-    if (scrollbarWidth > 0) {
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-    }
-    document.body.classList.add('overflow-hidden');
-    openModalAnimation();
-  };
-
-  const closeModal = () => {
-    document.body.classList.remove('overflow-hidden');
-    document.body.style.paddingRight = '';
-    closeModalAnimation();
-  };
-
-  cards.forEach((card) => {
-    card.addEventListener('click', () => {
-      const projectKey = card.getAttribute('data-open-gallery');
-      if (projectKey) {
-        openModal(projectKey);
-      }
-    });
-  });
-
-  closeTriggers.forEach((trigger) => {
-    trigger.addEventListener('click', closeModal);
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
-      closeModal();
-    }
-  });
+  const cards = document.querySelectorAll('[data-open-gallery]');
 
   const observer = new IntersectionObserver(
     (entries) => {
